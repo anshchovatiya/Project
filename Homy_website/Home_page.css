@@ -1,0 +1,1912 @@
+@layer basic,utilities,Responsive;
+@layer basic {
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+  * ::-webkit-scrollbar {
+    width: 0px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  ul,
+  ol {
+    list-style: none;
+  }
+  button {
+    background-color: none;
+    text-decoration: none;
+    border: none;
+    z-index: 1;
+  }
+  i {
+    cursor: pointer;
+  }
+}
+@layer utilities {
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  .homy-logo {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    letter-spacing: 10px;
+    animation: zoomInAnimation 6s forwards;
+    transition: opacity 0.7s ease-in-out;
+    background-color: #ffe53b;
+    background-image: linear-gradient(147deg, #ffe53b 0%, green 25%, blue 50%, #ff2525 74%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    font-family: "Poetsen One", sans-serif;
+  }
+  .content {
+    display: none; /* Hide content until preloading is complete */
+  }
+  .first_page {
+    background-image: url(./images/photo1715927050.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+  header {
+    top: 0;
+    animation: fadeInRight 3s ease-in-out;
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    z-index: 2;
+    height: 100px;
+    padding: 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  header .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  header .logo img {
+    width: 6vw;
+    aspect-ratio: 1;
+    max-width: 60px;
+    min-width: 50px;
+    border-radius: 50%;
+  }
+  header .logo p {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 540;
+    letter-spacing: 2.5px;
+  }
+  header nav a {
+    position: relative;
+    margin: 0 1vw;
+    display: inline;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    color: white;
+  }
+  header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid brown;
+    scale: 0;
+    transition: scale 0.4s linear;
+  }
+  header nav a:hover::after {
+    scale: 1;
+  }
+  header nav a:hover {
+    color: #ff6622;
+  }
+  header .header_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+  header .header_buttons .login button {
+    background-color: transparent;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-right: 1.5vw;
+    border: 2px solid white;
+  }
+  header .header_buttons .login button i {
+    margin-right: 0.5vw;
+  }
+  header .header_buttons .login button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  header .header_buttons .login button:hover::before {
+    height: 180%;
+  }
+  header .header_buttons .login button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  header .header_buttons .Listing button {
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    background-color: #ff6622;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  header .header_buttons .Listing button i {
+    font-size: clamp(0.8rem, 1.4vw, 2.2rem);
+  }
+  header .header_buttons .Listing button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  header .header_buttons .Listing button:hover::before {
+    height: 180%;
+  }
+  header .header_buttons .Listing button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  header .header_buttons > i {
+    display: none;
+    font-size: clamp(2rem, 2.2vw, 4rem);
+  }
+  .hero_section {
+    overflow: hidden;
+    animation: fadeInRight 3s ease-in-out;
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    color: black;
+    text-align: center;
+    padding: 3vw;
+  }
+  .hero_section h1 {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .hero_section h1 span {
+    color: #ff6622;
+    font-weight: 700;
+  }
+  .hero_section > ol {
+    height: 3rem;
+    line-height: 3rem;
+    overflow: hidden;
+    margin-top: 2.8rem;
+    white-space: nowrap;
+    color: white;
+  }
+  .hero_section > ol li {
+    animation: text_slide_up 18s infinite;
+  }
+  .hero_section > ol span {
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+  .hero_section .search_box {
+    text-align: left;
+    margin-top: 6vw;
+    max-width: 70vw;
+    display: grid;
+    align-items: center;
+    background-color: white;
+    grid-template-columns: 27% 27% 27% 19%;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    padding: 2vw 1vw;
+  }
+  .hero_section .search_box div:not(:last-child) {
+    border-right: 2px solid rgba(85, 78, 78, 0.6745098039);
+    margin-left: 1vw;
+    padding-right: 1vw;
+  }
+  .hero_section .search_box .line2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+  .hero_section .search_box .line2 i {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 100;
+  }
+  .hero_section .search_box .line2 .ri-map-pin-line {
+    font-size: clamp(0.8rem, 2vw, 3rem);
+    padding: 0.4rem 0;
+  }
+  .hero_section .search_box .line2 p {
+    font-size: clamp(0.8rem, 1vw, 2rem);
+  }
+  .hero_section .search_box .Location .line2 span {
+    display: inline-block;
+    width: 100%;
+  }
+  .hero_section .search_box .Location .line2 i {
+    font-size: clamp(1.1rem, 1.7vw, 2rem);
+  }
+  .hero_section .search_box > div {
+    height: 100%;
+  }
+  .hero_section .search_box > div > p {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  .hero_section .search_box .search_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero_section .search_box .search_button button {
+    background-color: #ff6622;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    padding-block: 0.4vw;
+  }
+  .hero_section .search_box .search_button button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .hero_section .search_box .search_button button:hover::before {
+    height: 180%;
+  }
+  .hero_section .search_box .search_button button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  .Quote_section {
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    place-items: center;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .Quote_section .img_name img {
+    width: 60px;
+    aspect-ratio: 1.2;
+    border-radius: 50%;
+  }
+  .Quote_section .img_name p:nth-child(2) {
+    font-size: clamp(0.8rem, 1.3vw, 2rem);
+    font-weight: 600;
+  }
+  .Quote_section .img_name p:nth-child(3) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Quote_section .quote {
+    font-size: clamp(1.5rem, 1.5vw, 4rem);
+    font-weight: 400;
+    color: black;
+    letter-spacing: 2px;
+  }
+  .Quote_section .ratings p:nth-child(1) {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 700;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Quote_section .ratings .ratings {
+    white-space: nowrap;
+    margin: 1rem;
+  }
+  .Quote_section .ratings .ratings i {
+    background-color: #00b376;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    color: white;
+    padding: 3px;
+  }
+  .Quote_section .ratings span:nth-child(3) {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Quote_section .ratings span:nth-child(4) {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(85, 78, 78, 0.6745098039);
+    letter-spacing: 1px;
+  }
+  .hr_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hr_line hr {
+    width: 50%;
+    height: 3px;
+    background-color: black;
+  }
+  .hr_line i:nth-child(2) {
+    color: #ff6622;
+    margin-left: 20px;
+    font-size: 13px;
+  }
+  .hr_line i:nth-child(3) {
+    color: gray;
+    margin: 8px;
+    font-size: 13px;
+  }
+  .hr_line i:nth-child(4) {
+    color: #282828;
+    margin-right: 20px;
+    font-size: 13px;
+  }
+  .Advantages_section {
+    width: 82%;
+    margin: auto;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .Advantages_section .heading {
+    margin-top: 4vw;
+  }
+  .Advantages_section .heading p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    margin-bottom: 1vw;
+  }
+  .Advantages_section .heading p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Advantages_section .advantages {
+    margin-top: 2vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .Advantages_section .advantages div {
+    padding: 0 3vw;
+  }
+  .Advantages_section .advantages div img {
+    width: 170px;
+    border-radius: 40px;
+    aspect-ratio: 1;
+    padding: 2rem;
+  }
+  .Advantages_section .advantages div p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 1vw;
+  }
+  .Advantages_section .advantages div p:nth-child(3) {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    margin-bottom: 2vw;
+  }
+  .Introduction {
+    display: grid;
+    width: 86%;
+    gap: 1.5rem;
+    margin: auto;
+    grid-template-columns: 55% 45%;
+    min-height: 60vh;
+  }
+  .Introduction .left_box {
+    border-radius: 10px;
+    background-image: url(./images/pexels-myersmc16-919179-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #fcdfd7;
+    background-position: center;
+    position: relative;
+    padding: 2.5vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .Introduction .left_box > p {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 500;
+    color: black;
+    letter-spacing: 1px;
+    margin-top: 1.5vw;
+    margin-bottom: clamp(2rem, 2vw, 5rem);
+  }
+  .Introduction .left_box i {
+    font-size: clamp(1rem, 2vw, 3rem);
+    padding: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 14px rgb(148, 117, 117);
+    margin-left: 14px;
+  }
+  .Introduction .left_box i:hover {
+    transition: 0.7s;
+    background-color: white;
+    color: black;
+  }
+  .Introduction .left_box .box1 {
+    background-color: white;
+    padding: 2.5vw;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    right: 3rem;
+    top: 200px;
+  }
+  .Introduction .left_box .box1 p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Introduction .left_box .box1 p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Introduction .left_box .box1:hover {
+    transition: 1.5s;
+    background-color: black;
+  }
+  .Introduction .left_box .box1:hover p {
+    color: white;
+  }
+  .Introduction .left_box .box2 {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5vw;
+    position: absolute;
+    bottom: 25px;
+  }
+  .Introduction .left_box .box2 p {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    font-weight: 500;
+  }
+  .Introduction .left_box .box2 .Profile_images img {
+    width: 3vmax;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-top: 1vw;
+    outline: 2px solid #ffffff;
+  }
+  .Introduction .left_box .box2 .Profile_images img:nth-child(2) {
+    position: relative;
+    left: -15px;
+  }
+  .Introduction .left_box .box2 .Profile_images img:nth-child(3) {
+    position: relative;
+    left: -30px;
+  }
+  .Introduction .left_box .box2 .Profile_images img:nth-child(4) {
+    position: relative;
+    left: -45px;
+  }
+  .Introduction .left_box .box2:hover {
+    transition: 1s;
+    color: white;
+    background-color: black;
+  }
+  .Introduction .right_box {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: grid;
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .Introduction .right_box > p:nth-child(1) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .Introduction .right_box > p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 600;
+    margin: 1vw 0;
+  }
+  .Introduction .right_box .project_counts {
+    border-block: 2px solid rgba(85, 78, 78, 0.6745098039);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Introduction .right_box .project_counts div p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 500;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Introduction .right_box .project_counts div p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 1vw;
+  }
+  .Introduction .right_box .line1,
+  .Introduction .right_box .line2,
+  .Introduction .right_box .line3 {
+    gap: 1.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-top: 0.6vw;
+  }
+  .Introduction .right_box .buttons {
+    white-space: nowrap;
+    margin: 2vw 0;
+  }
+  .Introduction .right_box .buttons button:nth-child(1) {
+    background-color: #ff6622;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-right: 1.2vw;
+  }
+  .Introduction .right_box .buttons button:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .Introduction .right_box .buttons button:nth-child(1):hover::before {
+    height: 180%;
+  }
+  .Introduction .right_box .buttons button:nth-child(1):hover {
+    cursor: pointer;
+    color: white;
+  }
+  .Introduction .right_box .buttons a:nth-child(2) {
+    white-space: nowrap;
+    color: #ff6622;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+  }
+  .Introduction .right_box .buttons a:nth-child(2) i {
+    margin-left: 0.5vw;
+  }
+  .Introduction .right_box .buttons a:nth-child(2):hover {
+    transition: 0.5s;
+    color: royalblue;
+  }
+  .Explore_background {
+    background-image: url("./images/background-2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    min-height: 100svh;
+  }
+  .Explore {
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+    min-width: 100%;
+    min-height: 104svh;
+    margin: auto;
+    padding: 8vw 0;
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .Explore .heading {
+    max-width: 80vw;
+    margin-top: 4vw;
+  }
+  .Explore .heading p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 1vw;
+  }
+  .Explore .heading p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 3vw;
+  }
+  .Explore .advantages {
+    display: grid;
+    width: 90%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    aspect-ratio: 4.5;
+    gap: 2vw;
+  }
+  .Explore .advantages div {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    transition: all 0.6s linear;
+  }
+  .Explore .advantages div p:nth-child(1) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    color: white;
+    font-weight: 600;
+  }
+  .Explore .advantages div p:nth-child(2) {
+    color: white;
+  }
+  .Explore .advantages div:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    scale: 1.05;
+    background-size: 107% 107%;
+  }
+  .Explore .advantages .box1 {
+    background-image: url("./images/Explore1.webp");
+  }
+  .Explore .advantages .box2 {
+    background-image: url("./images/Explore2.jpg");
+  }
+  .Explore .advantages .box3 {
+    background-image: url("./images/Explore3.jpeg");
+  }
+  .Explore .advantages .box4 {
+    background-image: url("./images/Explore4.jpg");
+  }
+  .Listing_mid {
+    background-color: #f5eee8;
+    padding: 2vw;
+    padding: 8vw 0;
+  }
+  .Listing_mid .heading {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Listing_mid .heading .left p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Listing_mid .heading .left p:nth-child(1) span {
+    color: #ff6622;
+  }
+  .Listing_mid .heading .left p:nth-child(2) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-weight: 400;
+  }
+  .Listing_mid .heading button {
+    background-color: #ff6622;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .Listing_mid .heading button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .Listing_mid .heading button:hover::before {
+    height: 180%;
+  }
+  .Listing_mid .heading button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  .Listing_mid .property_grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+  }
+  .Listing_mid .property_grid > div {
+    transition: all 0.6s linear;
+  }
+  .Listing_mid .property_grid > div:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    scale: 1.01;
+  }
+  .Listing_mid .property_grid div {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    position: relative;
+  }
+  .Listing_mid .property_grid div .image_section {
+    overflow: hidden;
+  }
+  .Listing_mid .property_grid div .image_section section {
+    width: 100%;
+    aspect-ratio: 1.5;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .Listing_mid .property_grid div .image_section img {
+    width: 100%;
+    aspect-ratio: 1.5;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+  }
+  .Listing_mid .property_grid div .image_section .button {
+    color: white;
+    background-color: #ff6622;
+    padding: 0;
+    padding: 0.3rem 1.5vw;
+    font-size: clamp(0.5rem, 0.6vw, 1rem);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .Listing_mid .property_grid div .info p:nth-child(1) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    color: #ff6622;
+    font-weight: 600;
+  }
+  .Listing_mid .property_grid div .info p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Listing_mid .property_grid div .size_and_rooms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vw 0;
+  }
+  .Listing_mid .property_grid div .size_and_rooms i {
+    margin-right: 0.5vw;
+  }
+  .Listing_mid .property_grid div .size_and_rooms span {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+  }
+  .Listing_mid .property_grid div .price_section {
+    border-radius: 0;
+    padding-top: 0.5vw;
+    border-top: 2px solid rgba(128, 128, 128, 0.332);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Listing_mid .property_grid div .price_section span {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    font-weight: 600;
+  }
+  .Listing_mid .property_grid div .price_section i {
+    background-color: #282828;
+    color: white;
+    padding: 0.5vw;
+    border-radius: 50%;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    margin-top: 0.3vw;
+  }
+  .Listing_mid .property_grid div .price_section i:hover {
+    background-color: royalblue;
+    transition: 0.5s;
+  }
+  .Listing_mid .property_grid div:hover .image_section img {
+    scale: 1.2;
+  }
+  .Monthly_Deal {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("./images/Monthly Deal section image.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 2.2vmax;
+  }
+  .Monthly_Deal .main_content {
+    gap: 1.3vw;
+    width: 80%;
+    margin: 4vw auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .Monthly_Deal .main_content .content2 p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    letter-spacing: 5px;
+  }
+  .Monthly_Deal .main_content .content2 p:nth-child(2) {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    color: white;
+    font-weight: 500;
+    margin-block: 1.4vw;
+  }
+  .Monthly_Deal .main_content .content2 button {
+    background-color: #ff6622;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid white;
+    border-radius: 20px;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    display: inline-block;
+    margin-top: 1vw;
+  }
+  .Monthly_Deal .main_content .content2 button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .Monthly_Deal .main_content .content2 button:hover::before {
+    height: 180%;
+  }
+  .Monthly_Deal .main_content .content2 button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  .Monthly_Deal .main_content .box_container {
+    background-color: white;
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  .Monthly_Deal .main_content .box_container .left_side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1.6vw;
+    border-right: 1px solid rgba(128, 128, 128, 0.469);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.469);
+  }
+  .Monthly_Deal .main_content .box_container .left_side p:nth-child(1) {
+    color: white;
+    background-color: #00b376;
+    padding: 0.3rem 1.7vw;
+    font-size: clamp(0.5rem, 0.6vw, 1rem);
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  .Monthly_Deal .main_content .box_container .left_side p:nth-child(2) {
+    font-size: clamp(1.7rem, 1vw, 2.4rem);
+    font-weight: 600;
+  }
+  .Monthly_Deal .main_content .box_container .left_side .buttons i {
+    font-size: clamp(1.3rem, 1vw, 2.4rem);
+    margin-right: 1vw;
+    color: rgba(85, 78, 78, 0.6745098039);
+  }
+  .Monthly_Deal .main_content .box_container .left_side .buttons i:hover {
+    color: crimson;
+  }
+  .Monthly_Deal .main_content .box_container .right_side {
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1.6vw;
+    padding-right: 3vw;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.469);
+  }
+  .Monthly_Deal .main_content .box_container .right_side > p:nth-child(1) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+  }
+  .Monthly_Deal .main_content .box_container .right_side > p:nth-child(2) {
+    font-size: clamp(1.5rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 1.5rem auto;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) calc(100% - 5px), rgba(170, 170, 177, 0.308) 0);
+    background-size: 14px;
+    padding-inline: 1rem;
+  }
+  .Monthly_Deal .main_content .box_container .right_side .fectures {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Monthly_Deal .main_content .box_container .right_side .fectures section {
+    width: 100%;
+    text-align: center;
+  }
+  .Monthly_Deal .main_content .box_container .right_side .fectures section p:nth-child(1) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    font-weight: 600;
+  }
+  .Monthly_Deal .main_content .box_container .right_side .fectures section p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Monthly_Deal .main_content .box_container .right_side .fectures section:not(:last-child) {
+    border-right: 1px solid rgba(85, 78, 78, 0.6745098039);
+  }
+  .Monthly_Deal .main_content .box_container .bottom_section {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vw 1.5rem;
+  }
+  .Monthly_Deal .main_content .box_container .bottom_section p {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    font-weight: 500;
+  }
+  .Monthly_Deal .main_content .box_container .bottom_section i {
+    background-color: #282828;
+    color: white;
+    padding: 0.5vw;
+    border-radius: 50%;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    margin-top: 0.4vw;
+  }
+  .Monthly_Deal .main_content .box_container .bottom_section i:hover {
+    background-color: royalblue;
+    transition: 0.5s;
+  }
+  .Agent_info {
+    width: 80%;
+    margin: auto;
+  }
+  .Agent_info .heading {
+    margin: auto;
+    margin: 3vw 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Agent_info .heading .left p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+  }
+  .Agent_info .heading .left p:nth-child(1) span {
+    color: #ff6622;
+  }
+  .Agent_info .heading .left p:nth-child(2) {
+    font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-weight: 400;
+  }
+  .Agent_info .heading button {
+    background-color: white;
+    padding: 0.4rem 2vw;
+    color: #ff6622;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 1s linear;
+    border: 2px solid #ff6622;
+  }
+  .Agent_info .heading button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .Agent_info .heading button:hover::before {
+    height: 180%;
+  }
+  .Agent_info .heading button:hover {
+    cursor: pointer;
+    color: white;
+  }
+  .Agent_info .heading button:hover {
+    border: 2px solid white;
+  }
+  .Agent_info .team_info {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .Agent_info .team_info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Agent_info .team_info div img {
+    border-radius: 15px;
+    width: 80%;
+    aspect-ratio: 0.9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: all 1s ease-in-out;
+  }
+  .Agent_info .team_info div img:hover {
+    scale: 1.06;
+  }
+  .Agent_info .team_info div p:nth-child(2) {
+    margin-top: 2vw;
+    font-size: clamp(0.8rem, 1.2vw, 2rem);
+    font-weight: 500;
+  }
+  .Agent_info .team_info div p:nth-child(3) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 3vw;
+  }
+  .Estimate_section {
+    width: 80%;
+    margin: 6rem auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .Estimate_section .left_side {
+    position: relative;
+    max-height: 100%;
+  }
+  .Estimate_section .left_side img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 15px;
+  }
+  .Estimate_section .left_side .box {
+    box-shadow: rgba(0, 0, 0, 0.15) -2.4px 2.4px 3.2px;
+    border-radius: 15px;
+    max-width: 60%;
+    text-align: center;
+    position: absolute;
+    bottom: -3.5rem;
+    left: -3rem;
+    background-color: white;
+    overflow: hidden;
+    aspect-ratio: 1.1;
+  }
+  .Estimate_section .left_side .box p:nth-child(1) {
+    font-size: clamp(0.7rem, 1vw, 1.5rem);
+    font-weight: 500;
+    padding: 0.7vw;
+    margin-top: 0.3vw;
+  }
+  .Estimate_section .left_side .box p:nth-child(2) {
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: 500;
+  }
+  .Estimate_section .left_side .box iframe {
+    width: 100%;
+    height: 20vh;
+    max-width: 35vw;
+    position: relative;
+    top: 8px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .Estimate_section .right_side p:nth-child(1) {
+    margin-top: -1rem;
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Estimate_section .right_side p:nth-child(2) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    margin: 1vw 0;
+  }
+  .Estimate_section .right_side p:nth-child(3) {
+    font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+    margin-bottom: 3vw;
+  }
+  .Estimate_section .right_side form {
+    border: 2px solid gray;
+    display: grid;
+    border-radius: 8px;
+    margin-bottom: 0.4rem;
+    grid-template-columns: 70% 30%;
+    padding: 0.6rem 0.6rem;
+  }
+  .Estimate_section .right_side form input:nth-child(1) {
+    border: none;
+    font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+    padding-left: 1.5vw;
+  }
+  .Estimate_section .right_side form input:nth-child(2) {
+    font-size: clamp(0.7rem, 1vw, 1.4rem);
+    background-color: #ff6622;
+    border: none;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.3s linear;
+  }
+  .Estimate_section .right_side form input:nth-child(2):hover {
+    cursor: pointer;
+    background-color: black;
+  }
+  .Estimate_section .right_side p:nth-child(5) {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    margin-top: 8px;
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-weight: 300;
+  }
+  .Estimate_section .right_side p:nth-child(5):hover {
+    color: royalblue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .Process_explanation {
+    width: 82%;
+    margin: auto;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .Process_explanation .heading {
+    margin-bottom: 5vw;
+    margin-top: 4vw;
+  }
+  .Process_explanation .heading p:nth-child(1) {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    margin-bottom: 1vw;
+  }
+  .Process_explanation .heading p:nth-child(1) span {
+    color: #ff6622;
+  }
+  .Process_explanation .heading p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .Process_explanation .process {
+    margin-top: 3vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+  }
+  .Process_explanation .process div:not(.arrow) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282828;
+    border-radius: 50%;
+    padding: 1rem 3rem;
+    max-width: 18vw;
+    aspect-ratio: 1;
+  }
+  .Process_explanation .process div:not(.arrow) img {
+    min-width: 80px;
+    max-width: 300px;
+    max-width: 15vw;
+    border-radius: 40px;
+    aspect-ratio: 1;
+    padding: 2rem;
+  }
+  .Process_explanation .process div:not(.arrow) p:nth-child(2) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(1rem, 1vw, 2rem);
+    font-weight: 400;
+    margin-bottom: 1vw;
+    color: white;
+  }
+  .Process_explanation .process div:not(.arrow) p:nth-child(3) {
+    font-size: clamp(0.7rem, 0.7vw, 1.2rem);
+    margin-bottom: 2vw;
+    color: white;
+  }
+  .Process_explanation .process .arrow {
+    white-space: nowrap;
+    font-size: clamp(2rem, 2.2vw, 4rem);
+    padding: 1.5vw;
+  }
+  .Realtor_login {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/Relator login image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 4% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Realtor_login > p {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    width: 40%;
+  }
+  .Realtor_login > p span {
+    color: #ff6622;
+  }
+  .Realtor_login .right_side {
+    width: 40%;
+  }
+  .Realtor_login .right_side form {
+    border: 2px solid black;
+    display: grid;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 0.4rem;
+    grid-template-columns: 65% 35%;
+    padding: 0.6rem 0.6rem;
+    gap: 0.5rem;
+  }
+  .Realtor_login .right_side form input:nth-child(1) {
+    border: none;
+    font-size: clamp(0.7rem, 1vw, 1.3rem);
+    padding-left: 1.5vw;
+    width: 100%;
+    border-radius: 15px;
+    border: 0px;
+  }
+  .Realtor_login .right_side form input:nth-child(2) {
+    font-size: clamp(0.7rem, 1vw, 1.4rem);
+    background-color: #ff6622;
+    border: none;
+    padding: 0.4rem 1vw;
+    margin-right: 0.5vw;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.3s linear;
+  }
+  .Realtor_login .right_side form input:nth-child(2):hover {
+    cursor: pointer;
+    background-color: black;
+  }
+  .Realtor_login .right_side p {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 1vw;
+  }
+  .Realtor_login .right_side p a {
+    color: #ff6622;
+    font-weight: 600;
+  }
+  .Realtor_login .right_side p a:hover {
+    color: #00b376;
+  }
+  .background_bottom {
+    margin-top: 8.5rem;
+    background-image: url(./images/photo_2024-05-19_09-41-04.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 60vh;
+  }
+  .background_bottom .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    text-align: center;
+  }
+  .background_bottom .content p {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    width: 50vw;
+  }
+  .background_bottom .content a {
+    background-color: none;
+    padding: 0.4rem 2vw;
+    color: white;
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid white;
+    margin: 2.5rem 0;
+  }
+  .background_bottom .content a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: black;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+  .background_bottom .content a:hover::before {
+    height: 180%;
+  }
+  .background_bottom .content a:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+  }
+  footer {
+    width: 80%;
+    margin: auto;
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+  footer .right_side {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 1.5rem;
+  }
+  footer .right_side .Legal {
+    border-inline: 2px solid rgba(85, 78, 78, 0.6745098039);
+  }
+  footer .right_side > div {
+    padding-inline: 2vw;
+  }
+  footer .right_side > div p {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  footer .right_side > div ul li {
+    margin-top: 0.7rem;
+  }
+  footer .right_side > div ul li a {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  footer .right_side > div ul li a:hover {
+    color: royalblue;
+    cursor: pointer;
+  }
+  footer .left_side {
+    padding: 3rem 1.5rem;
+  }
+  footer .left_side .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  footer .left_side .logo img {
+    width: 2vw;
+    margin: 1rem 0;
+    aspect-ratio: 1;
+    max-width: 60px;
+    min-width: 50px;
+    border-radius: 50%;
+  }
+  footer .left_side .logo p {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 540;
+    letter-spacing: 2.5px;
+  }
+  footer .left_side p:nth-child(2) {
+    font-size: clamp(1rem, 1vw, 2rem);
+    margin-right: 5vw;
+  }
+  footer .left_side p:nth-child(3) {
+    color: rgba(85, 78, 78, 0.6745098039);
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+  }
+  footer .left_side > a {
+    font-size: clamp(0.8rem, 0.9vw, 1.2rem);
+    border-bottom: 2px solid rgba(85, 78, 78, 0.6745098039);
+    padding-bottom: 4px;
+    color: black;
+  }
+  footer .left_side > a:hover {
+    color: royalblue;
+    cursor: pointer;
+  }
+  footer .left_side .logos {
+    margin: 2rem 0;
+  }
+  footer .left_side .logos i {
+    font-size: clamp(1.5rem, 2vw, 4rem);
+    margin-right: 1.5vw;
+    color: white;
+    background-color: black;
+    padding: 0.6rem;
+    border-radius: 50%;
+    transition: all 1s ease-in-out;
+  }
+  footer .left_side .logos i:nth-child(1):hover {
+    background-color: royalblue;
+    border-radius: 5px;
+  }
+  footer .left_side .logos i:nth-child(2):hover {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
+    border-radius: 5px;
+  }
+  footer .left_side .logos i:last-child {
+    transition: all 1s ease-in-out;
+  }
+  footer .left_side .logos i:last-child:hover {
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    border-radius: 5px;
+  }
+  footer .left_side .logos i:first-child {
+    padding-inline: 1rem;
+  }
+}
+@layer Responsive {
+  @media (max-width: 720px) {
+    .hero_section > div {
+      width: 100%;
+    }
+    .hero_section .search_box {
+      overflow: hidden;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero_section .search_box > div {
+      margin-top: 0.5rem;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(85, 78, 78, 0.6745098039);
+    }
+    .hero_section .search_box > div .line2 .ri-map-pin-line {
+      margin-right: 5px;
+    }
+    .hero_section .search_box .search_button {
+      border: none;
+      margin-top: 1rem;
+    }
+    .Location .line2 span {
+      display: inline;
+    }
+    .Quote_section {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .advantages {
+      grid-template-columns: 1fr;
+    }
+    .Explore .advantages {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    .Explore .advantages div {
+      width: 80%;
+      margin: 1vh 0;
+      aspect-ratio: 1.5;
+    }
+    .property_grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.5rem;
+    }
+    .main_content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .main_content .box_container {
+      margin-bottom: 2rem;
+      grid-template-columns: 1fr;
+    }
+    .main_content .box_container .left_side,
+    .main_content .box_container .right_side,
+    .main_content .box_container .bottom_section {
+      padding: 3vh;
+      max-width: 80vw;
+    }
+    .main_content .box_container .right_side > p:nth-child(2) {
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+    }
+    .main_content .box_container .left_side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .main_content .box_container .left_side .info p {
+      margin: auto;
+    }
+    .main_content .content {
+      text-align: center;
+    }
+    .main_content .content p:nth-child(2) {
+      margin: auto;
+      margin-block: 1rem;
+    }
+    .Agent_info .heading {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    .Agent_info .team_info {
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .Realtor_login {
+      flex-direction: column;
+      text-align: center;
+    }
+    .Realtor_login p {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+    .Realtor_login .right_side {
+      width: 80%;
+    }
+    footer {
+      margin-inline: 0;
+      width: 100%;
+      max-width: 100vw;
+      padding: 0;
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    footer .left_side {
+      padding: 1.5rem;
+      max-width: 100vw;
+    }
+    footer .left_side .logo {
+      justify-content: center;
+    }
+    footer .right_side {
+      padding: 1.5rem;
+      margin-top: -3rem;
+    }
+    footer .right_side div {
+      max-width: 33vw;
+    }
+  }
+  @media (max-width: 840px) {
+    header nav,
+    header .header_buttons .login,
+    header .header_buttons .Listing {
+      display: none;
+    }
+    header .header_buttons i {
+      display: block;
+    }
+    .Introduction {
+      grid-template-columns: 1fr;
+      height: 1000px;
+    }
+    .Introduction .box1 {
+      bottom: 300px;
+      height: -moz-fit-content;
+      height: fit-content;
+      right: 15px;
+    }
+    .Estimate_section {
+      text-align: center;
+      grid-template-columns: 1fr;
+      gap: 8rem;
+      width: 80%;
+    }
+    .Estimate_section .left_side {
+      max-width: 90vw;
+    }
+    .Estimate_section .left_side .box {
+      left: -1rem;
+      max-width: 40vw;
+      border: 2px solid white;
+    }
+    .Estimate_section .right_side {
+      max-width: 90vw;
+    }
+  }
+  @media (min-width: 720px) and (max-width: 1000px) {
+    .property_grid {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 2rem;
+    }
+    .Explore .advantages {
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+    }
+    .Explore .advantages div {
+      width: 100%;
+      margin: 1vh 0;
+      aspect-ratio: 1.5;
+    }
+  }
+  @media (max-width: 500px) {
+    .Listing_mid .heading {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      margin-bottom: 2vh;
+    }
+    .Process_explanation .process {
+      grid-template-columns: 1fr;
+    }
+    .Process_explanation .process div:not(.arrow) {
+      max-width: 75vw;
+      aspect-ratio: 1;
+      padding: 3rem;
+    }
+    .Process_explanation .process div:not(.arrow) img {
+      max-width: 35vw;
+    }
+    .Process_explanation .process div:not(.arrow) p:nth-child(2) {
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+    }
+    .Process_explanation .process div:not(.arrow) p:nth-child(3) {
+      font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    }
+    .Process_explanation .process .arrow {
+      writing-mode: vertical-lr;
+      margin: 1rem 0;
+    }
+  }
+  @media (max-width: 1000px) and (min-width: 500px) {
+    .Process_explanation .process {
+      grid-template-columns: 1fr;
+    }
+    .Process_explanation .process div:not(.arrow) {
+      max-width: 50vw;
+      aspect-ratio: 1;
+      padding: 3rem;
+    }
+    .Process_explanation .process div:not(.arrow) img {
+      max-width: 35vw;
+    }
+    .Process_explanation .process div:not(.arrow) p:nth-child(2) {
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+    }
+    .Process_explanation .process div:not(.arrow) p:nth-child(3) {
+      font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+    }
+    .Process_explanation .process .arrow {
+      writing-mode: vertical-lr;
+      margin: 1rem 0;
+    }
+  }
+  @media (min-width: 0px) and (max-width: 240px) {
+    body > div,
+    footer {
+      overflow: auto;
+      max-width: 100vw;
+    }
+  }
+}
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    transform: scale(1);
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 90% 90%;
+  }
+  100% {
+    opacity: 1;
+    background-position: 0% 0%;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes text_slide_up {
+  0%, 10% {
+    transform: translateY(0%);
+  }
+  15%, 25% {
+    transform: translateY(-100%);
+  }
+  30%, 40% {
+    transform: translateY(-200%);
+  }
+  45%, 55% {
+    transform: translateY(-300%);
+  }
+  60%, 70% {
+    transform: translateY(-400%);
+  }
+  75%, 85% {
+    transform: translateY(-500%);
+  }
+  85%, 90% {
+    transform: translateY(-600%);
+  }
+}/*# sourceMappingURL=Home_page.css.map */

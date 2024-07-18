@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+
+<body>
+    <main class="min-h-svh bg-slate-800 grid place-items-center">
+        <div class="box min-h-[70svh] w-[30svw] bg-slate-950 text-white rounded-lg">
+            <p class="text-9xl text-center mt-16" id="Time">00</p>
+            <div class="grid grid-cols-2 gap-x-[3vw] *:bg-white text-black *:mt-8 *:text-2xl *:font-semibold *:rounded-xl p-8 *:py-2 ">
+                <button class="hover:bg-slate-900 hover:text-white duration-300" id="Start">Start</button>
+                <button class="hover:bg-slate-900 hover:text-white duration-300" id="Reset">Reset</button>
+                <button class="hover:bg-slate-900 hover:text-white duration-300" id="Stop">Stop</button>
+                <button class="hover:bg-slate-900 hover:text-white duration-300" id="GetTime">Get time</button>
+                <button class="hover:bg-slate-900 hover:text-white duration-300" id="ClearTime">Clear time</button>
+            </div>
+            <div id="output" class="p-8 overflow-auto text-sm font-bold h-[200px] mb-6 text-center tracking-wider line-clamp-3"></div>
+        </div>
+    </main>
+    <script src="timer.js"></script>
+</body>
+
+</html>

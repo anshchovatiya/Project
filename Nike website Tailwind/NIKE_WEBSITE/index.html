@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nike</title>
+    <!-- css stylesheet link -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- favicon link -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <!-- font-awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- this is link for remixicon website -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- main container started here -->
+
+    <div class="main_container dark:bg-slate-900 max-[200px]:overflow-hidden scroll-smooth">
+      <!-- header section start here -->
+      <header class="backdrop-blur-[6px] sticky top-0 z-50">
+        <div
+          class="max-container header flex justify-between items-center py-4 px-8 h-24 bg-transparent"
+        >
+          <!-- this is logo section -->
+          <a href="#">
+            <img src="./assets/images/header-logo.svg" alt="logo" />
+          </a>
+          <nav>
+            <a class="navigation_bar" href="#">Home</a>
+            <a class="navigation_bar" href="#">About us</a>
+            <a class="navigation_bar" href="#">Products</a>
+            <a class="navigation_bar" href="#">Contact us</a>
+          </nav>
+          <button class="hidden min-[900px]:block">
+            <i
+              class="fa-solid fa-moon text-3xl bg-gray-50 p-2 px-3 rounded-full"
+              id="toggleDark"
+              onclick="document.body.classList.toggle('dark')"
+            ></i>
+          </button>
+          <div class="flex items-center gap-[1rem]">
+            <button class="button hidden min-[900px]:block" href="#">
+              sign in
+            </button>
+            <button class="button hidden min-[900px]:block" href="#">
+              Login
+            </button>
+            <img
+              class="h-5 min-[900px]:hidden"
+              src="./assets/icons/hamburger.svg"
+              alt="menu button"
+            />
+          </div>
+          <!-- logo section ended here -->
+        </div>
+      </header>
+      <!-- header section end here -->
+
+      <!-- main content section started here -->
+      <main class="w-full">
+        <!-- hero section started here -->
+        <div
+          class="hero-section py-4 px-8 max-container flex lg:mt-24 max-lg:flex-col items-center max-lg:gap-8 mb-24 max-[350px]:break-all"
+        >
+          <!-- left side of hero section -->
+          <div class="left-side flex-1 text-center flex flex-col items-center">
+            <p class="text-base py-2 text-red-600 font-bold">Our Summer Collections</p>
+            <h1
+              class="text-[2.5rem] py-4 font-bold tracking-wider dark:text-white sm:text-[3rem] md:text-[3.5rem] lg:text-[5rem]"
+            >
+              The New Arrival<br /><span class="text-[#FF6452]">Nike</span>
+              Shoes
+            </h1>
+            <p class="Description">
+              Discover stylish Nike arrivals, Quality <br />comfort, and
+              innovation for your active life.
+            </p>
+            <button class="button my-2">
+              <span class="medium-responsive-font">Shop now</span>
+              <i class="ri-arrow-right-line medium-responsive-font"></i>
+            </button>
+            <!-- hero-section left side bottom section -->
+            <section
+              class="flex w-4/5 justify-between mt-8 dark:text-white mx-16"
+            >
+              <div>
+                <p class="text-[2rem] font-semibold md:text-4xl">1k+</p>
+                <p class="Description">Brands</p>
+              </div>
+              <div>
+                <p class="text-[2rem] font-semibold md:text-4xl">500+</p>
+                <p class="Description">Shops</p>
+              </div>
+              <div>
+                <p class="text-[2rem] font-semibold md:text-4xl">250+</p>
+                <p class="Description">Customers</p>
+              </div>
+            </section>
+            <!-- hero-section left side ended section -->
+          </div>
+          <!-- left side of hero section ended -->
+
+          <!-- right side of hero section start here -->
+          <div class="right-side w-2/4 max-[720px]:w-full mt-16 animate-bounce">
+            <img
+              class="shadow_custom w-full"
+              src="./assets/images/big-shoe1.png"
+              alt="shoes image"
+            />
+          </div>
+          <!-- right side of hero section end here -->
+        </div>
+        <!-- hero section ended here -->
+
+        <!-- popular Products section started here -->
+        <div class="py-4 px-8 max-container popular_products text-center">
+          <p class="text-[3rem] py-5 font-bold tracking-wider dark:text-white">
+            Our <span class="text-[#FF6452]">Popular</span> Products
+          </p>
+          <p class="py-4 Description max-w-[500px] m-auto">
+            Experience top-notch quality and style with our sought-after
+            selection. Discover a world of comfort, design and value
+          </p>
+          <!-- card section -->
+          <section
+            class="card grid gap-4 grid-cols-1 my-8 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <!-- card 1 -->
+            <div class="m-auto">
+              <div class="img mb-8">
+                <img
+                  class="max-w-[100%]"
+                  src="./assets/images/shoe7.svg"
+                  alt="shoe image"
+                />
+              </div>
+              <div class="content dark:text-white">
+                <div class="stars flex gap-4 my-4 justify-center">
+                  <img src="./assets/icons/star.svg" alt="star icon" />
+                  <p>(4.5)</p>
+                </div>
+                <p class="font-bold text-base">Nike Air Jordan-01</p>
+                <p class="text-lg my-3 font-bold text-[#FF6452]">$200.20</p>
+              </div>
+            </div>
+            <!-- card 2 -->
+            <div class="m-auto">
+              <div class="img mb-8">
+                <img
+                  class="max-w-[100%]"
+                  src="./assets/images/shoe4.svg"
+                  alt="shoe image"
+                />
+              </div>
+              <div class="content dark:text-white">
+                <div class="stars flex gap-4 my-4 justify-center">
+                  <img src="./assets/icons/star.svg" alt="star icon" />
+                  <p>(4.5)</p>
+                </div>
+                <p class="font-bold text-base">Nike Air Max 270</p>
+                <p class="text-lg my-3 font-bold text-[#FF6452]">$150</p>
+              </div>
+            </div>
+            <!-- card 3 -->
+            <div class="m-auto">
+              <div class="img mb-8">
+                <img
+                  class="max-w-[100%]"
+                  src="./assets/images/shoe5.svg"
+                  alt="shoe image"
+                />
+              </div>
+              <div class="content dark:text-white">
+                <div class="stars flex gap-4 my-4 justify-center">
+                  <img src="./assets/icons/star.svg" alt="star icon" />
+                  <p>(4.5)</p>
+                </div>
+                <p class="font-bold text-base">Nike Zoom Pegasus Turbo 2</p>
+                <p class="text-lg my-3 font-bold text-[#FF6452]">$180</p>
+              </div>
+            </div>
+            <!-- card 4 -->
+            <div class="m-auto">
+              <div class="img mb-8">
+                <img
+                  class="max-w-[100%]"
+                  src="./assets/images/shoe6.svg"
+                  alt="shoe image"
+                />
+              </div>
+              <div class="content dark:text-white">
+                <div class="stars flex gap-4 my-4 justify-center">
+                  <img src="./assets/icons/star.svg" alt="star icon" />
+                  <p>(4.5)</p>
+                </div>
+                <p class="font-bold text-base">
+                  Nike React Infinity Run Flyknit
+                </p>
+                <p class="text-lg my-3 font-bold text-[#FF6452]">$160</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- popular Products section ended here -->
+
+        <!-- super quality section started here -->
+        <div
+          class="py-4 px-8 max-container super_quality_shoes grid grid-cols-1 lg:grid-cols-2 min-h-[800px] flex items-center gap-8"
+        >
+          <div class="left_side m-auto text-center lg:w-full lg:text-left">
+            <p
+              class="text-[2.7rem] font-bold md:text-[3rem] lg:text-[3.5rem] dark:text-white"
+            >
+              We Provide you
+              <span class="text-[#FF6452]">Super Quality</span> Shoes
+            </p>
+            <p class="Description my-8 max-w-[650px]">
+              Step into style and comfort with our premier shoe service. Elevate
+              your footwear game with our curated collection of trendy and
+              timeless designs, crafted with quality materials for lasting wear.
+              Whether you're seeking sleek sophistication for the office or
+              casual chic for weekend adventures. From classic favorites to
+              fashion-forward statements, discover the ideal pair to express
+              your unique personality.
+            </p>
+            <p class="Description">
+              Experience the ultimate blend of fashion and function with our
+              exceptional shoe service.
+            </p>
+            <button class="button mt-6">View details</button>
+          </div>
+          <div class="right_side w-4/5 m-auto lg:w-full ">
+            <img class="w-full animate-spin" src="./assets/images/shoe8.svg" alt="shoes" />
+          </div>
+        </div>
+        <!-- super quality section ended here -->
+
+        <!-- features section started here -->
+        <div
+          class="max-container py-4 px-8 features grid grid-cols-1 md:grid-cols-3 gap-12 p-12 mt-12"
+        >
+          <section class="flex items-center flex-col p-5 shadow-3xl dark:bg-white rounded-2xl dark:text-black">
+            <div
+              class="bg-[#FF6452] h-16 w-16 grid place-items-center rounded-full my-4"
+            >
+              <img
+                class="h-12 w-12"
+                src="./assets/icons/truck-fast.svg"
+                alt="Shipping icon"
+              />
+            </div>
+            <p class="font-semibold text-2xl my-3 text-center">Free Shipping</p>
+            <p class="text-center Description my-4 text-lg dark:text-black">
+              Enjoy seamless shopping with our complimentary shipping service
+            </p>
+          </section>
+          <section class="flex items-center flex-col p-5 shadow-3xl dark:bg-white rounded-2xl dark:text-black">
+            <div
+              class="bg-[#FF6452] h-16 w-16 grid place-items-center rounded-full my-4"
+            >
+              <img
+                class="h-12 w-12"
+                src="./assets/icons/shield-tick.svg"
+                alt="secure payment icon"
+              />
+            </div>
+            <p class="font-semibold text-2xl my-3 text-center">
+              Secure Payment
+            </p>
+            <p class="text-center Description my-4 text-lg dark:text-black">
+              Experience worry-free transactions with our secure payment options
+            </p>
+          </section>
+          <section class="flex items-center flex-col p-5 shadow-3xl dark:bg-white rounded-2xl dark:text-black">
+            <div
+              class="bg-[#FF6452] h-16 w-16 grid place-items-center rounded-full my-4"
+            >
+              <img
+                class="h-12 w-12"
+                src="./assets/icons/support.svg"
+                alt="Shipping icon"
+              />
+            </div>
+            <p class="font-semibold text-2xl my-3 text-center">
+              Love to help you
+            </p>
+            <p class="text-center Description my-4 text-lg dark:text-black">
+              Our dedicated team is here to assist you every stop of the way.
+            </p>
+          </section>
+        </div>
+        <!-- features section ended here -->
+
+        <!-- special offer section started -->
+        <div
+          class="max-container py-4 px-8 speical_offer grid grid-cols-1 my-16 items-center lg:grid-cols-2 justify-items-center gap-10"
+        >
+          <div class="left-side ml-12 lg:ml-0">
+            <img src="./assets/images/offer.svg" alt="our shoes offers" />
+          </div>
+          <div class="right-side text-center lg:text-left">
+            <p
+              class="text-[2.7rem] font-bold md:text-[3rem] lg:text-[3.5rem] dark:text-white mb-8"
+            >
+              <span class="text-[#FF6452]">Special</span> Offer
+            </p>
+            <p class="pt-4 Description">
+              Step into savings with our exclusive NIKE Shoe Sale! Elevate your
+              footwear game with unbeatable deals on a wide range of NIKE shoes,
+              designed to fuel your every step with style and performance.
+              Whether you're hitting the track, dominating the court, or simply
+              strolling the streets, our collection has something for everyone.
+            </p>
+            <p class="pt-2 Description">
+              Get ready to lace up and save big on your favorite NIKE kicks,
+              from iconic classics to innovative newcomers. With discounts that
+              will make your wallet jump for joy, there's never been a better
+              time to upgrade your shoe game.
+            </p>
+            <p class="pt-2 Description">
+              But hurry, these deals won't last forever! Shop now and step into
+              savings with NIKE.
+            </p>
+            <div class="py-4 gap">
+              <button class="button mr-4">Shop now</button>
+              <button class="button_transparent">Learn more</button>
+            </div>
+          </div>
+        </div>
+        <!-- special offer section ended -->
+
+        <!-- review section started here -->
+        <div class="review_section my-16 py-12 px-8 text-center bg-blue-100">
+          <section class="max-container">
+            <p
+              class="text-[2.7rem] font-bold md:text-[3rem] lg:text-[3.5rem] py-6"
+            >
+              What Our Customers Say?
+            </p>
+            <p class="Description mb-7 max-w-[500px] m-auto dark:text-black">
+              Hear genuine stories from our customers about their exceptional
+              experience with us
+            </p>
+          </section>
+          <section
+            class="max-container grid grid-cols-1 md:grid-cols-2 place-items-center gap-8 lg:w-[50%] my-16"
+          >
+            <div class="first grid place-items-center">
+              <img
+                class="h-[150px] w-[150px] my-8 rounded-full"
+                src="./assets/images/customer1.jpeg"
+                alt="moric brown profile photo"
+              />
+              <p class="Description max-w-[300px] text-xl dark:text-black">
+                The attention to detail and quality of product exceed my
+                expectation, Highly recommended!
+              </p>
+              <div class="flex gap-2 my-2">
+                <img src="./assets/icons/star.svg" alt="star image" />
+                <p class="font-bold">(4.5)</p>
+              </div>
+              <p class="font-bold text-2xl">Morich Brown</p>
+            </div>
+            <div class="second grid place-items-center">
+              <img
+                class="h-[150px] w-[150px] my-8"
+                src="./assets/images/customer2.svg"
+                alt="Lota Mongeskar profile photo"
+              />
+              <p class="Description max-w-[300px] text-xl dark:text-black">
+                The product not only met but exceed my expectations. I'll
+                definitely be a returning customer!
+              </p>
+              <div class="flex gap-2 my-2">
+                <img src="./assets/icons/star.svg" alt="star image" />
+                <p class="font-bold">(4.5)</p>
+              </div>
+              <p class="font-bold text-2xl">Lota Mongeskar</p>
+            </div>
+          </section>
+        </div>
+        <!-- review section ended here -->
+
+        <!-- email section started here  -->
+        <div
+          class="email-section max-container text-center lg:flex my-16 gap-8 items-center px-8 justify-between"
+        >
+          <p
+            class="text-[3rem] font-bold md:text-[2rem] dark:text-white mb-8 lg:mb-0"
+          >
+            Sign Up for <span>Updates</span> & Newsletter
+          </p>
+          <form
+            class="flex border-2 border-gray-500 border-solid rounded-xl w-full px-3 py-3 flex-1 gap-6 lg:max-w-[42%] max-[374px]:flex-col"
+          >
+            <input
+              class="flex-1 text-base md:text-xl pl-4 rounded-xl"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="example82@gmail.com"
+            />
+            <input
+              class="text-white bg-[#FF6452] px-4 py-3 text-sm font-bold rounded-2xl md:text-xl md:px-6"
+              type="submit"
+              name="submit"
+              id="submit"
+            />
+          </form>
+        </div>
+        <!-- email section ended here  -->
+      </main>
+      <!-- main content section ended here -->
+
+      <!-- footer section started here -->
+      <!-- footer section ended here -->
+      <footer class="bg-black">
+        <div class="max-container py-12 px-8 grid place-items-center">
+          <div class="top lg:flex lg:items-center lg:gap-28 w-full">
+            <section
+              class="frist-section py-10 grid place-items-center text-center"
+            >
+              <img class="py-4" src="./assets/images/footer-logo.svg" alt="nike logo" />
+              <p class="text-white py-8 max-w-[350px] text-lg">
+                Get shoes ready for the new term at your nearest Nike store.
+                Find your perfect size in Store. Get rewards.
+              </p>
+              <div class="flex gap-6 my-5">
+                <div
+                  class="bg-white h-12 w-12 rounded-full grid place-items-center"
+                >
+                  <img
+                    class="w-8 h-8"
+                    src="./assets/icons/facebook.svg"
+                    alt="facebook icon"
+                  />
+                </div>
+                <div
+                  class="bg-white h-12 w-12 rounded-full grid place-items-center"
+                >
+                  <img
+                    class="w-8 h-8"
+                    src="./assets/icons/twitter.svg"
+                    alt="twitter icon"
+                  />
+                </div>
+                <div
+                  class="bg-white h-12 w-12 rounded-full grid place-items-center"
+                >
+                  <img
+                    class="w-8 h-8"
+                    src="./assets/icons/instagram.svg"
+                    alt="instagram icon"
+                  />
+                </div>
+              </div>
+            </section>
+            <section
+              class="second-section flex text-white justify-between text-center p-10 flex-col gap-16  flex-1 sm:flex-row"
+            >
+              <ul>
+                <li class="text-xl mb-6 font-bold">Products</li>
+                <li class="footer-list-items"><a href="#">Air Force 1</a></li>
+                <li class="footer-list-items"><a href="#">Air Max 1</a></li>
+                <li class="footer-list-items"><a href="#">Air Jordan 1</a></li>
+                <li class="footer-list-items"><a href="#">Air Force 2</a></li>
+                <li class="footer-list-items">
+                  <a href="#">Nike Waffle Racer</a>
+                </li>
+                <li class="footer-list-items"><a href="#">Nike Cortez</a></li>
+              </ul>
+              <ul>
+                <li class="text-xl mb-6 font-bold">Help</li>
+                <li class="footer-list-items"><a href="#">About Us</a></li>
+                <li class="footer-list-items"><a href="#">FAQs</a></li>
+                <li class="footer-list-items"><a href="#">How it works</a></li>
+                <li class="footer-list-items">
+                  <a href="#">Privacy policy</a>
+                </li>
+                <li class="footer-list-items">
+                  <a href="#">Payment policy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="text-xl mb-6 font-bold">Get in touch</li>
+                <li class="footer-list-items">
+                  <a href="#">Customer@nike.com</a>
+                </li>
+                <li class="footer-list-items"><a href="#">+92554862334</a></li>
+              </ul>
+            </section>
+          </div>
+          <p class="text-white flex gap-3">
+            <img src="./assets/icons/copyright-sign.svg" alt="copyright sign" />
+            Copyright. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- main container ended here -->
+
+    <!-- this is javascript for dark mode -->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleDark = document.getElementById("toggleDark");
+        toggleDark.addEventListener("click", function () {
+          if (document.documentElement.classList.includes("dark")) {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+          alert("click!");
+        });
+      });
+    </script>
+    <!-- javascript ended -->
+  </body>
+</html>

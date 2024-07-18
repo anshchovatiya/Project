@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      background-image: linear-gradient(43deg,
+          #4158d0 0%,
+          #c850c0 46%,
+          #ffcc70 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="h-[calc(100svh-1px)] flex justify-center items-center flex-col overflow-hidden" id="main">
+    <div class="buttons flex gap-8">
+      <div id="button1"
+        class="select-none tracking-wide flex-1 bg-slate-800 text-white py-2 px-12 rounded-3xl hover:bg-blue-800 cursor-pointer duration-500">
+        #FFFFFF
+      </div>
+      <div id="button2"
+        class="select-none tracking-wide flex-1 bg-rose-600 text-white py-2 px-12 rounded-3xl hover:bg-blue-800 cursor-pointer duration-500">
+        #00000
+      </div>
+      <div id="button3"
+        class="tracking-wide flex-1 bg-lime-500 text-white py-2 px-12 rounded-3xl hover:bg-blue-800 cursor-pointer duration-500">
+        #00000
+      </div>
+    </div>
+
+    <form class="mt-6">
+      <label for="Direction" class="">
+        <select id="Direction"
+          class="appearance-none rounded-2xl font-semibold tracking-normal px-4 py-2 cursor-pointer hover:bg-slate-800 hover:text-white">
+          <option value="to right">to right</option>
+          <option value="to left">to left</option>
+          <option value="to bottom">to bottom</option>
+          <option value="to top">to top</option>
+          <option value="45deg">45 deg</option>
+          <option value="90deg">90 deg</option>
+          <option value="135deg">135 deg</option>
+          <option value="135deg">180 deg</option>
+        </select>
+      </label>
+    </form>
+    <p class="my-6 text-white font-bold tracking-wide">
+      Click here to copy code
+    </p>
+    <p class="bg-[#0f0d0d4b] rounded-lg p-5 text-white text-lg border-l-2 border-slate-800 hover:bg-slate-800 cursor-pointer duration-500 tracking-widest"
+      id="gradientcode">
+      background-image: linear-gradient(to right, #4158D0, #C850C0, #FFCC70);
+    </p>
+  </main>
+  <script src="gradientGenerator.js"></script>
+</body>
+
+</html>

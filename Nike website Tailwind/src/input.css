@@ -1,0 +1,137 @@
+
+/* this is files for fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+
+
+:root{
+  --orange-color:#FF6452;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    @apply max-[400px]:break-words;
+  }
+
+
+
+}
+
+
+@layer components{
+
+  /* this is component header section anchor tag */
+  .navigation_bar{
+     @apply  ml-7 hidden min-[900px]:inline relative font-semibold pb-1 medium-responsive-font dark:text-white tracking-wider;
+     &::before{
+      content: '';
+      position: absolute;
+      background: linear-gradient(113.1deg, rgb(254, 140, 48) 14%, rgb(253, 75, 101) 80.5%, rgb(255, 53, 109) 100.6%);
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      scale: 0;
+      transition: 0.7s ease-in-out;
+     }
+     &:hover{
+      color:var(--orange-color);
+      &::before{
+        scale: 1;
+      }
+     }
+  }
+
+  /* this is snippet for buttons */
+  .button{
+    @apply medium-responsive-font z-20 font-semibold relative dark:text-white px-5 pt-1 pb-2  rounded-md bg-slate-900 text-white dark:bg-white dark:text-black overflow-hidden transition-scale scale-110;
+    
+    &::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      background: rgb(255, 55, 0);
+      height: 0%;
+      transition: 0.8s;
+      bottom: 0;
+      left: 0;
+      border-radius: 50% 50% 0 0;
+      transition: height 0.6s linear;
+      background-clip: content-box;
+      z-index: -1;
+    }
+
+    &:hover::before{
+      height: 180%;
+    } 
+    &:hover{
+      color:white;
+    }
+    
+  }
+
+  /* this is snippet for buttons */
+  .button_transparent{
+    @apply medium-responsive-font z-20 font-semibold relative px-5 pt-1 pb-2   rounded-md text-black dark:bg-white dark:text-black overflow-hidden border-2 border-solid border-black;
+
+    &::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      background: rgb(255, 55, 0);
+      height: 0%;
+      transition: 0.8s;
+      bottom: 0;
+      left: 0;
+      border-radius: 50% 50% 0 0;
+      transition: height 0.6s linear;
+      background-clip: content-box;
+      z-index: -1;
+    }
+
+    &:hover::before{
+      height: 180%;
+    } 
+    &:hover{
+      transition: 0.7s;
+      color:white;
+    }
+    
+  }
+
+
+  .medium-responsive-font{
+    font-size: clamp(1.2rem,1vw,1.5rem);
+  }
+
+  .hero-section{
+    height: calc(100 - 6rem);
+  }
+
+
+  .Description{
+    @apply text-base mb-5 text-slate-500 tracking-wider dark:text-white-400 md:text-xl;
+  }
+
+  .shadow_custom{
+    filter:drop-shadow(0px 5px 15px black);
+  }
+
+  .footer-list-items{
+      @apply mb-3 font-semibold  text-base;
+  }
+
+}
+
+

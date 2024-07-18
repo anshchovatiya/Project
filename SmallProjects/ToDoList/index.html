@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="h-svh bg-slate-800 text-white flex justify-center items-center flex-col">
+        <main class="max-w-[500px]">
+            <p class="font-semibold text-4xl">Todo List</p>
+            <div class="flex gap-4 mt-8">
+                <input type="text" id="todo-current-item" name="todo-current-item"
+                    class="rounded-xl text-blue-900 px-2 font-bold text-sm tracking-wide">
+                <button class="text-xl font-semibold bg-blue-700 px-5 py-2 rounded-md" id="submit">Add to List</button>
+            </div>
+
+            
+            <div id="todo-items" class="h-[500px] mt-8 rounded-xl text-white  overflow-y-auto">
+          
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+<!-- cross mark  -->
+<!-- <i class="fa-light fa-xmark"></i> -->

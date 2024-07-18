@@ -1,0 +1,1892 @@
+// Original Design link -> https://themeforest.net/item/homy-real-estate-figma-template-dashboard/screenshots/48589124?index=0
+
+//font-styles
+// font-family: "Roboto", sans-serif;
+
+// this is all the variables section
+$button-background-color-orange: #ff6622;
+$button-background-color-green: #00b376;
+$button-background-color-slate: #282828;
+$button-background-color-white: #ffffff;
+$font-color-white: white;
+$font-color-black: black;
+$description-color: #554e4eac;
+$hover-color: $button-background-color-orange;
+$main-background-color: #f5eee8;
+$large-size: clamp(2rem, 3vw, 5rem);
+$tittle-size: clamp(2rem, 2.2vw, 4rem);
+$medium-size: clamp(1.2rem, 2.5vw, 2rem);
+$small-size: clamp(0.8rem, 0.9vw, 1.2rem);
+$button-size: clamp(0.65rem, 0.8vw, 1.2rem);
+$icon-size: clamp(1.8rem, 3vw, 3rem);
+$small-icon-size: clamp(0.8rem, 2vw, 3rem);
+$normal-font-size: clamp(0.8rem, 1.4vw, 2.5rem);
+
+// this is all the snippets
+@mixin flexbox($-direction, $-justify-content, $-align-items) {
+  display: flex;
+  flex-direction: $-direction;
+  justify-content: $-justify-content;
+  align-items: $-align-items;
+}
+
+@mixin parent_container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+@mixin button($-bg-color, $-color, $-hover-bg-color, $-hover-font-color) {
+  background-color: $-bg-color;
+  padding: 0.4rem 2vw;
+  color: $-color;
+  font-size: $small-size;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: $-hover-bg-color;
+    height: 0%;
+    transition: 0.8s;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0;
+    transition: height 0.6s linear;
+    background-clip: content-box;
+  }
+
+  &:hover::before {
+    height: 180%;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $-hover-font-color;
+  }
+}
+
+@mixin tittle($-font-weight, $-font-color) {
+  font-size: clamp(1.8rem, 3vw, 5rem);
+  font-weight: $-font-weight;
+  color: $-font-color;
+  letter-spacing: 1px;
+}
+
+@mixin tittle2($-font-weight, $-font-color) {
+  font-size: clamp(1.5rem, 1.5vw, 4rem);
+  font-weight: $-font-weight;
+  color: $-font-color;
+  letter-spacing: 2px;
+}
+
+@mixin small-text($-font-weight, $-font-color) {
+  font-size: $small-size;
+  font-weight: $-font-weight;
+  color: $-font-color;
+  letter-spacing: 1px;
+}
+
+@mixin Description {
+  color: $description-color;
+  font-size: $small-size;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+// layer declaration
+@layer basic,utilities,Responsive;
+
+// basic       --> this css apply to entire page
+// utilities   --> this main css for the each elements and container
+// Responsive  --> this css is for responsive behavior
+
+// basic layer Started
+@layer basic {
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+  button {
+    background-color: none;
+    text-decoration: none;
+    border: none;
+    z-index: 1;
+  }
+  i {
+    cursor: pointer;
+  }
+}
+//basic layer ended
+
+// main css started here
+@layer utilities {
+  // preloader
+
+  // this is preloader background and position css
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+
+  // this is preloader logo css
+  .homy-logo {
+    font-size: clamp(1.8rem, 3vw, 5rem);
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    letter-spacing: 10px;
+    animation: zoomInAnimation 6s forwards;
+
+    transition: opacity 0.7s ease-in-out;
+    background-color: #ffe53b;
+    background-image: linear-gradient(
+      147deg,
+      #ffe53b 0%,
+      green 25%,
+      blue 50%,
+      #ff2525 74%
+    );
+
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    font-family: "Poetsen One", sans-serif;
+  }
+
+  .content {
+    display: none; /* Hide content until preloading is complete */
+  }
+  // preloader ended
+
+  // this is css for hero section background
+  .first_page {
+    background-image: url(./images/photo1715927050.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+  // header section started here
+  header {
+    top: 0;
+    animation: fadeInRight 3s ease-in-out;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+    height: 100px;
+    padding: 3vw;
+    @include flexbox(row, space-between, center);
+    color: $font-color-white;
+
+    // logo section
+    .logo {
+      @include flexbox(row, start, center);
+      gap: 0.6rem;
+      img {
+        width: 6vw;
+        aspect-ratio: 1;
+        max-width: 60px;
+        min-width: 50px;
+        border-radius: 50%;
+      }
+      p {
+        font-size: $medium-size;
+        font-weight: 540;
+        letter-spacing: 2.5px;
+      }
+    }
+
+    //navigation bar
+    nav {
+      a {
+        position: relative;
+        margin: 0 1vw;
+        display: inline;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-size: $small-size;
+        color: $font-color-white;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 100%;
+          border-bottom: 3px solid brown;
+          scale: 0;
+          transition: scale 0.4s linear;
+        }
+
+        &:hover::after {
+          scale: 1;
+        }
+
+        &:hover {
+          color: $hover-color;
+        }
+      }
+    }
+
+    // header buttons
+    .header_buttons {
+      @include flexbox(row, start, center);
+      .login button {
+        i {
+          margin-right: 0.5vw;
+        }
+        @include button(transparent, white, black, white);
+        margin-right: 1.5vw;
+        border: 2px solid white;
+      }
+      .Listing button {
+        display: flex;
+        gap: 0.5vw;
+        align-items: center;
+        i {
+          font-size: clamp(0.8rem, 1.4vw, 2.2rem);
+        }
+        @include button($button-background-color-orange, white, black, white);
+      }
+      & > i {
+        display: none;
+        font-size: $tittle-size;
+      }
+    }
+  }
+  // header section ended here
+
+  // hero section started here
+  .hero_section {
+    overflow: hidden;
+    animation: fadeInRight 3s ease-in-out;
+    backdrop-filter: blur(5px); 
+    height: calc(100vh - 100px);
+    @include flexbox(column, center, center);
+    margin: 0 auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    // width: 80%;
+    color: $font-color-black;
+    text-align: center;
+    padding: 3vw;
+
+    h1 {
+      @include tittle(600, $font-color-black);
+      span {
+        color: $button-background-color-orange;
+        font-weight: 700;
+      }
+    }
+
+    & > ol {
+      height: 3rem;
+      line-height: 3rem;
+      overflow: hidden;
+      margin-top: 2.8rem;
+      white-space: nowrap;
+      color: $font-color-white;
+      li {
+        animation: text_slide_up 18s infinite;
+      }
+      span {
+        font-size: clamp(1rem, 3vw, 2.5rem);
+        font-weight: 600;
+        color: white;
+        white-space: nowrap;
+      }
+    }
+
+    .search_box {
+      text-align: left;
+      margin-top: 6vw;
+      max-width: 70vw;
+      display: grid;
+      align-items: center;
+      background-color: white;
+      grid-template-columns: 27% 27% 27% 19%;
+      border-radius: 10px;
+      letter-spacing: 1px;
+      padding: 2vw 1vw;
+
+      & div:not(:last-child) {
+        border-right: 2px solid $description-color;
+        margin-left: 1vw;
+        padding-right: 1vw;
+      }
+
+      .line2 {
+        @include flexbox(row, space-between, center);
+        font-weight: 600;
+        i {
+          font-size: $icon-size;
+          font-weight: 100;
+        }
+        .ri-map-pin-line {
+          font-size: $small-icon-size;
+          padding: 0.4rem 0;
+        }
+        p {
+          font-size: clamp(0.8rem, 1vw, 2rem);
+        }
+      }
+
+      .Location .line2 {
+        span {
+          display: inline-block;
+          width: 100%;
+        }
+        i {
+          font-size: clamp(1.1rem, 1.7vw, 2rem);
+        }
+      }
+
+      & > div {
+        height: 100%;
+        & > p {
+          @include Description;
+          margin-bottom: 0.5rem;
+        }
+      }
+      .search_button {
+        @include flexbox(row, center, center);
+        button {
+          @include button($button-background-color-orange, white, black, white);
+          padding-block: 0.4vw;
+        }
+      }
+    }
+  }
+  // hero section ended here
+
+  // Quote section started here
+  .Quote_section {
+    // animation: fade-in 2s linear;
+    // animation-timeline: view(100px);
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    place-items: center;
+    padding: 2.5rem;
+    text-align: center;
+
+    .img_name {
+      img {
+        width: 60px;
+        // height: 100px;
+        aspect-ratio: 1.2;
+        border-radius: 50%;
+      }
+      p:nth-child(2) {
+        font-size: clamp(0.8rem, 1.3vw, 2rem);
+        font-weight: 600;
+      }
+      p:nth-child(3) {
+        @include Description;
+      }
+    }
+
+    .quote {
+      @include tittle2(400, $font-color-black);
+    }
+
+    .ratings {
+      p:nth-child(1) {
+        @include small-text(700, $font-color-black);
+      }
+      .ratings {
+        white-space: nowrap;
+        margin: 1rem;
+        i {
+          background-color: $button-background-color-green;
+          font-size: $medium-size;
+          color: white;
+          padding: 3px;
+        }
+      }
+      span:nth-child(3) {
+        @include small-text(600, $font-color-black);
+      }
+      span:nth-child(4) {
+        @include small-text(300, $description-color);
+      }
+    }
+  }
+  // Quote section ended here
+
+  // horizontal divider started
+  .hr_line {
+    @include flexbox(row, center, center);
+    hr {
+      width: 50%;
+      height: 3px;
+      background-color: $font-color-black;
+    }
+
+    i:nth-child(2) {
+      color: $button-background-color-orange;
+      margin-left: 20px;
+      font-size: 13px;
+    }
+
+    i:nth-child(3) {
+      color: gray;
+      margin: 8px;
+      font-size: 13px;
+    }
+
+    i:nth-child(4) {
+      color: $button-background-color-slate;
+      margin-right: 20px;
+      font-size: 13px;
+    }
+  }
+  // horizontal divider ended
+
+  // Advantages section started
+  .Advantages_section {
+    width: 82%;
+    margin: auto;
+    margin-bottom: 3rem;
+    text-align: center;
+    .heading {
+      margin-top: 4vw;
+      p:nth-child(1) {
+        @include tittle(600, $font-color-black);
+        margin-bottom: 1vw;
+      }
+      p:nth-child(2) {
+        @include Description;
+      }
+    }
+    .advantages {
+      margin-top: 2vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      div {
+        padding: 0 3vw;
+        img {
+          width: 170px;
+          border-radius: 40px;
+          aspect-ratio: 1;
+          padding: 2rem;
+        }
+        p:nth-child(2) {
+          @include Description;
+          margin-bottom: 1vw;
+        }
+        p:nth-child(3) {
+          @include small-text(600, $font-color-black);
+          margin-bottom: 2vw;
+        }
+      }
+    }
+  }
+  // Advantages section ended here
+
+  // Introduction section started here
+  .Introduction {
+    display: grid;
+    width: 86%;
+    gap: 1.5rem;
+    margin: auto;
+    grid-template-columns: 55% 45%;
+    min-height: 60vh;
+
+    // left box started here
+    .left_box {
+      border-radius: 10px;
+      background-image: url(./images/pexels-myersmc16-919179-removebg-preview.png);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-color: #fcdfd7;
+      background-position: center;
+      position: relative;
+      padding: 2.5vw;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      & > p {
+        @include tittle(500, $font-color-black);
+        margin-top: 1.5vw;
+        margin-bottom: clamp(2rem, 2vw, 5rem);
+      }
+      i {
+        font-size: clamp(1rem, 2vw, 3rem);
+        padding: 1rem;
+        color: $font-color-white;
+        background-color: $font-color-black;
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 14px rgb(148, 117, 117);
+        margin-left: 14px;
+        &:hover {
+          transition: 0.7s;
+          background-color: white;
+          color: black;
+        }
+      }
+      .box1 {
+        background-color: white;
+        // width: fit-content;
+        padding: 2.5vw;
+        border-radius: 10px;
+        position: absolute;
+        text-align: center;
+        overflow: hidden;
+        right: 3rem;
+        top: 200px;
+        p:nth-child(1) {
+          @include tittle(600, black);
+        }
+        p:nth-child(2) {
+          @include Description;
+        }
+        &:hover {
+          transition: 1.5s;
+          background-color: black;
+          p {
+            color: white;
+          }
+        }
+      }
+      .box2 {
+        background-color: white;
+        // width: fit-content;
+        border-radius: 10px;
+        padding: 1.5vw;
+        position: absolute;
+        bottom: 25px;
+        p {
+          font-size: $normal-font-size;
+          font-weight: 500;
+        }
+        .Profile_images {
+          img {
+            width: 3vmax;
+            // height: 3vw;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            margin-top: 1vw;
+            outline: 2px solid $button-background-color-white;
+          }
+          img:nth-child(2) {
+            position: relative;
+            left: -15px;
+          }
+          img:nth-child(3) {
+            position: relative;
+            left: -30px;
+          }
+          img:nth-child(4) {
+            position: relative;
+            left: -45px;
+          }
+        }
+        &:hover {
+          transition: 1s;
+          color: white;
+          background-color: black;
+        }
+      }
+    }
+    //left box ended
+
+    //right box started
+    .right_box {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: grid;
+      border-radius: 10px;
+      padding: 2rem;
+      & > p:nth-child(1) {
+        font-size: $normal-font-size;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+      & > p:nth-child(2) {
+        @include Description;
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        font-weight: 600;
+        margin: 1vw 0;
+      }
+      .project_counts {
+        border-block: 2px solid $description-color;
+        @include flexbox(row, space-between, center);
+        // white-space: nowrap;
+        div {
+          p:nth-child(1) {
+            @include tittle(500, black);
+          }
+          p:nth-child(2) {
+            @include Description;
+            margin-bottom: 1vw;
+          }
+        }
+      }
+      .line1,
+      .line2,
+      .line3 {
+        gap: 1.5vw;
+        @include flexbox(row, start, center);
+        margin-top: 0.6vw;
+      }
+
+      .buttons {
+        white-space: nowrap;
+
+        margin: 2vw 0;
+        button:nth-child(1) {
+          @include button($button-background-color-orange, white, black, white);
+          margin-right: 1.2vw;
+        }
+        a:nth-child(2) {
+          white-space: nowrap;
+          color: $button-background-color-orange;
+          font-size: $small-size;
+          i {
+            margin-left: 0.5vw;
+          }
+          &:hover {
+            transition: 0.5s;
+            color: royalblue;
+          }
+        }
+      }
+    }
+    //right box ended
+  }
+  // Introduction section ended here
+
+  .Explore_background {
+    background-image: url("./images/background-2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    min-height: 100svh;
+  }
+
+  //  Explore section started here
+  .Explore {
+    backdrop-filter: blur(6px);
+    min-width: 100%;
+    min-height: 104svh;
+    margin: auto;
+    padding: 8vw 0;
+    margin-top: 8rem;
+    @include flexbox(column, center, center);
+    text-align: center;
+    .heading {
+      max-width: 80vw;
+      margin-top: 4vw;
+      p:nth-child(1) {
+        @include tittle(600, $font-color-white);
+        margin-bottom: 1vw;
+      }
+      p:nth-child(2) {
+        @include Description;
+        color: white;
+        margin-bottom: 3vw;
+      }
+    }
+    .advantages {
+      display: grid;
+      width: 90%;
+      margin: auto;
+      grid-template-columns: repeat(4, 1fr);
+      aspect-ratio: 4.5;
+      gap: 2vw;
+      // justify-items: center;
+      div {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        border-radius: 10px;
+        @include flexbox(column, end, center);
+        padding: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        p:nth-child(1) {
+          font-size: $normal-font-size;
+          color: $font-color-white;
+          font-weight: 600;
+        }
+        p:nth-child(2) {
+          color: $font-color-white;
+        }
+
+        transition: all 0.6s linear;
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          scale: 1.05;
+          background-size: 107% 107%;
+        }
+      }
+      .box1 {
+        background-image: url("./images/Explore1.webp");
+      }
+      .box2 {
+        background-image: url("./images/Explore2.jpg");
+      }
+      .box3 {
+        background-image: url("./images/Explore3.jpeg");
+      }
+      .box4 {
+        background-image: url("./images/Explore4.jpg");
+      }
+    }
+  }
+  //  Explore section ended here
+
+  // Listing section start here
+  .Listing_mid {
+    background-color: $main-background-color;
+    // margin-top: 10vw;
+    padding: 2vw;
+    padding: 8vw 0;
+
+    // heading section started
+    .heading {
+      width: 80%;
+      margin: auto;
+      margin-bottom: 3vw;
+      @include flexbox(row, space-between, center);
+      .left {
+        p:nth-child(1) {
+          @include tittle(600, $font-color-black);
+          span {
+            color: $button-background-color-orange;
+          }
+        }
+        p:nth-child(2) {
+          font-size: $normal-font-size;
+          color: $description-color;
+          font-weight: 400;
+        }
+      }
+      button {
+        @include button(
+          $button-background-color-orange,
+          white,
+          $font-color-black,
+          white
+        );
+      }
+    }
+    // heading section ended
+
+    // property grid section started
+    .property_grid {
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2vw;
+
+      & > div {
+        transition: all 0.6s linear;
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+            rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          scale: 1.01;
+        }
+      }
+
+      div {
+        background-color: $font-color-white;
+        padding: 0.5rem;
+        border-radius: 10px;
+        position: relative;
+        .image_section {
+          overflow: hidden;
+          section {
+            width: 100%;
+            aspect-ratio: 1.5;
+            border-radius: 10px;
+            overflow: hidden;
+          }
+          img {
+            width: 100%;
+            aspect-ratio: 1.5;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 1s ease-in-out;
+          }
+          .button {
+            color: white;
+            background-color: $button-background-color-orange;
+            padding: 0;
+            padding: 0.3rem 1.5vw;
+            font-size: clamp(0.5rem, 0.6vw, 1rem);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+          }
+        }
+        .info {
+          p:nth-child(1) {
+            font-size: $normal-font-size;
+            color: $button-background-color-orange;
+            font-weight: 600;
+          }
+          p:nth-child(2) {
+            @include Description;
+          }
+        }
+        .size_and_rooms {
+          @include flexbox(row, space-between, center);
+          margin: 1vw 0;
+          i {
+            margin-right: 0.5vw;
+          }
+          span {
+            font-size: $small-size;
+          }
+        }
+        .price_section {
+          border-radius: 0;
+          padding-top: 0.5vw;
+          border-top: 2px solid rgba(128, 128, 128, 0.332);
+          @include flexbox(row, space-between, center);
+          span {
+            font-size: $normal-font-size;
+            font-weight: 600;
+          }
+          i {
+            background-color: $button-background-color-slate;
+            color: white;
+            padding: 0.5vw;
+            border-radius: 50%;
+            font-size: $medium-size;
+            margin-top: 0.3vw;
+            &:hover {
+              background-color: royalblue;
+              transition: 0.5s;
+            }
+          }
+        }
+        &:hover .image_section img {
+          scale: 1.2;
+        }
+      }
+    }
+    // property grid ended started
+  }
+  // Listing section end here
+
+  // Monthly Deal section started here
+  .Monthly_Deal {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+      url("./images/Monthly\ Deal\ section\ image.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 2.2vmax;
+
+    .main_content {
+      gap: 1.3vw;
+      width: 80%;
+      margin: 4vw auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .content2 {
+        p:nth-child(1) {
+          @include tittle(700, $font-color-white);
+          letter-spacing: 5px;
+        }
+        p:nth-child(2) {
+          font-size: clamp(1rem, 2vw, 1.5rem);
+          letter-spacing: 2px;
+          word-spacing: 3px;
+          color: $font-color-white;
+          font-weight: 500;
+          margin-block: 1.4vw;
+        }
+        button {
+          @include button(
+            $button-background-color-orange,
+            white,
+            $font-color-black,
+            white
+          );
+
+          border: 2px solid white;
+          border-radius: 20px;
+          font-size: $small-size;
+          display: inline-block;
+          margin-top: 1vw;
+        }
+      }
+      .box_container {
+        background-color: white;
+        border-radius: 14px;
+        display: grid;
+        grid-template-columns: 40% 60%;
+
+        // left side started
+        .left_side {
+          @include flexbox(column, space-between, start);
+          padding: 1.6vw;
+          border-right: 1px solid rgba(128, 128, 128, 0.469);
+          border-bottom: 1px solid rgba(128, 128, 128, 0.469);
+          p:nth-child(1) {
+            color: white;
+            background-color: $button-background-color-green;
+            padding: 0.3rem 1.7vw;
+            font-size: clamp(0.5rem, 0.6vw, 1rem);
+            width: fit-content;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+          }
+          p:nth-child(2) {
+            font-size: clamp(1.7rem, 1vw, 2.4rem);
+            font-weight: 600;
+          }
+          .buttons {
+            i {
+              font-size: clamp(1.3rem, 1vw, 2.4rem);
+              margin-right: 1vw;
+              color: $description-color;
+              &:hover {
+                color: crimson;
+              }
+            }
+          }
+        }
+        // left side ended
+
+        //  right side started
+        .right_side {
+          max-width: 90vw;
+          @include flexbox(column, center, start);
+          padding: 1.6vw;
+          padding-right: 3vw;
+          border-bottom: 1px solid rgba(128, 128, 128, 0.469);
+          & > p:nth-child(1) {
+            @include Description;
+            padding-bottom: 1rem;
+          }
+
+          & > p:nth-child(2) {
+            font-size: clamp(1.5rem, 3vw, 5rem);
+            font-weight: 600;
+            color: black;
+            letter-spacing: 1px;
+            width: fit-content;
+            margin: 1.5rem auto;
+            background: linear-gradient(
+              90deg,
+              #0000 calc(100% - 5px),
+              rgba(170, 170, 177, 0.308) 0
+            );
+            background-size: 14px;
+            padding-inline: 1rem;
+          }
+
+          .fectures {
+            width: 100%;
+            @include flexbox(row, space-between, center);
+            section {
+              width: 100%;
+              text-align: center;
+              p:nth-child(1) {
+                font-size: $normal-font-size;
+                font-weight: 600;
+              }
+              p:nth-child(2) {
+                @include Description;
+              }
+            }
+            section:not(:last-child) {
+              border-right: 1px solid $description-color;
+            }
+          }
+        }
+        .bottom_section {
+          grid-column: 1/-1;
+          @include flexbox(row, space-between, center);
+          padding: 0.5vw 1.5rem;
+          p {
+            font-size: $normal-font-size;
+            font-weight: 500;
+          }
+          i {
+            background-color: $button-background-color-slate;
+            color: white;
+            padding: 0.5vw;
+            border-radius: 50%;
+            font-size: $medium-size;
+            margin-top: 0.4vw;
+            &:hover {
+              background-color: royalblue;
+              transition: 0.5s;
+            }
+          }
+        }
+        // right side ended
+      }
+      // box container ended
+    }
+  }
+  // Monthly Deal section ended here
+
+  // Agent information section started here
+  .Agent_info {
+    width: 80%;
+    margin: auto;
+    // heading section started
+    .heading {
+      margin: auto;
+      margin: 3vw 0;
+      @include flexbox(row, space-between, center);
+      .left {
+        p:nth-child(1) {
+          @include tittle(600, $font-color-black);
+          span {
+            color: $button-background-color-orange;
+          }
+        }
+        p:nth-child(2) {
+          font-size: $normal-font-size;
+          color: $description-color;
+          font-weight: 400;
+        }
+      }
+      button {
+        @include button(
+          white,
+          $button-background-color-orange,
+          $font-color-black,
+          white
+        );
+        transition: all 1s linear;
+        border: 2px solid $button-background-color-orange;
+        &:hover {
+          border: 2px solid white;
+        }
+      }
+    }
+    .team_info {
+      display: grid;
+      text-align: center;
+      grid-template-columns: repeat(4, 1fr);
+      div {
+        @include flexbox(column, center, center);
+        img {
+          border-radius: 15px;
+          width: 80%;
+          aspect-ratio: 0.9;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          transition: all 1s ease-in-out;
+          &:hover {
+            scale: 1.06;
+          }
+        }
+        p:nth-child(2) {
+          margin-top: 2vw;
+          font-size: clamp(0.8rem, 1.2vw, 2rem);
+          font-weight: 500;
+        }
+        p:nth-child(3) {
+          @include Description;
+          margin-bottom: 3vw;
+        }
+      }
+    }
+    // heading section ended
+  }
+  // Agent information section ended here
+
+  // Estimate section started here
+  .Estimate_section {
+    width: 80%;
+    margin: 6rem auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2.5rem;
+    align-items: center;
+    // text-align: center;
+    .left_side {
+      position: relative;
+      max-height: 100%;
+      img {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 15px;
+      }
+      .box {
+        box-shadow: rgba(0, 0, 0, 0.15) -2.4px 2.4px 3.2px;
+        border-radius: 15px;
+        max-width: 60%;
+        text-align: center;
+        position: absolute;
+        bottom: -3.5rem;
+        left: -3rem;
+        background-color: white;
+        overflow: hidden;
+        aspect-ratio: 1.1;
+        p:nth-child(1) {
+          font-size: clamp(0.7rem, 1vw, 1.5rem);
+          font-weight: 500;
+          padding: 0.7vw;
+          margin-top: 0.3vw;
+        }
+        p:nth-child(2) {
+          font-size: clamp(1rem, 3vw, 2rem);
+          font-weight: 500;
+        }
+        // img
+        iframe {
+          width: 100%;
+          height: 20vh;
+          max-width: 35vw;
+
+          // height: 200px;
+          position: relative;
+          top: 8px;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+
+    .right_side {
+      p:nth-child(1) {
+        margin-top: -1rem;
+        @include Description;
+      }
+      p:nth-child(2) {
+        @include tittle(600, $font-color-black);
+        margin: 1vw 0;
+      }
+      p:nth-child(3) {
+        font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+        margin-bottom: 3vw;
+      }
+      form {
+        border: 2px solid gray;
+        display: grid;
+        border-radius: 8px;
+        margin-bottom: 0.4rem;
+        grid-template-columns: 70% 30%;
+        padding: 0.6rem 0.6rem;
+        input:nth-child(1) {
+          border: none;
+          font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+          padding-left: 1.5vw;
+        }
+        input:nth-child(2) {
+          font-size: clamp(0.7rem, 1vw, 1.4rem);
+          background-color: $button-background-color-orange;
+          border: none;
+          padding: 0.4rem 2vw;
+          color: white;
+          font-weight: 500;
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+          transition: all 0.3s linear;
+
+          &:hover {
+            cursor: pointer;
+            background-color: black;
+          }
+        }
+      }
+      p:nth-child(5) {
+        font-size: $small-size;
+        margin-top: 8px;
+        color: $description-color;
+        font-weight: 300;
+        &:hover {
+          color: royalblue;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  // Estimate section ended here
+
+  // process explanation section started here
+  .Process_explanation {
+    width: 82%;
+    margin: auto;
+    margin-bottom: 5rem;
+    text-align: center;
+    .heading {
+      margin-bottom: 5vw;
+      margin-top: 4vw;
+      p:nth-child(1) {
+        @include tittle(600, $font-color-black);
+        margin-bottom: 1vw;
+        span {
+          color: $button-background-color-orange;
+        }
+      }
+      p:nth-child(2) {
+        @include Description;
+      }
+    }
+    .process {
+      margin-top: 3vw;
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
+      justify-items: center;
+
+      align-items: center;
+      div:not(.arrow) {
+        @include flexbox(column, center, center);
+        // aspect-ratio: 1;
+        background-color: $button-background-color-slate;
+        border-radius: 50%;
+        padding: 1rem 3rem;
+        max-width: 18vw;
+        aspect-ratio: 1;
+        img {
+          min-width: 80px;
+          max-width: 300px;
+          max-width: 15vw;
+          border-radius: 40px;
+          aspect-ratio: 1;
+          padding: 2rem;
+        }
+        p:nth-child(2) {
+          color: $description-color;
+          font-size: clamp(1rem, 1vw, 2rem);
+          font-weight: 400;
+          margin-bottom: 1vw;
+          color: $font-color-white;
+        }
+        p:nth-child(3) {
+          font-size: clamp(0.7rem, 0.7vw, 1.2rem);
+          margin-bottom: 2vw;
+          color: $font-color-white;
+        }
+      }
+      .arrow {
+        white-space: nowrap;
+        font-size: $tittle-size;
+        padding: 1.5vw;
+      }
+    }
+  }
+  // process explanation section ended here
+
+  // Relator login section started here
+  .Realtor_login {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("./images/Relator\ login\ image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 4% 10%;
+    @include flexbox(row, space-between, center);
+    & > p {
+      span {
+        color: $button-background-color-orange;
+      }
+      @include tittle(600, $font-color-white);
+      width: 40%;
+    }
+    .right_side {
+      width: 40%;
+      form {
+        border: 2px solid black;
+        display: grid;
+        border-radius: 8px;
+        background-color: white;
+        margin-bottom: 0.4rem;
+        grid-template-columns: 65% 35%;
+        padding: 0.6rem 0.6rem;
+        gap: 0.5rem;
+        input:nth-child(1) {
+          border: none;
+          font-size: clamp(0.7rem, 1vw, 1.3rem);
+          padding-left: 1.5vw;
+          width: 100%;
+          border-radius: 15px;
+          border: 0px;
+        }
+        input:nth-child(2) {
+          font-size: clamp(0.7rem, 1vw, 1.4rem);
+          background-color: $button-background-color-orange;
+          border: none;
+          padding: 0.4rem 1vw;
+          margin-right: 0.5vw;
+          color: white;
+          font-weight: 500;
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+          transition: all 0.3s linear;
+
+          &:hover {
+            cursor: pointer;
+            background-color: black;
+          }
+        }
+      }
+      p {
+        font-size: $small-size;
+        color: white;
+        letter-spacing: 1px;
+        margin-top: 1vw;
+        a {
+          color: $button-background-color-orange;
+          font-weight: 600;
+          &:hover {
+            color: $button-background-color-green;
+          }
+        }
+      }
+    }
+  }
+  // Relator login section ended here
+
+  // bottom inquiry section started here
+  .background_bottom {
+    margin-top: 8.5rem;
+    background-image: url(./images/photo_2024-05-19_09-41-04.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    // background-attachment: fixed;
+    height: 60vh;
+    .content {
+      @include flexbox(column, center, center);
+      height: 100%;
+      width: 100%;
+      backdrop-filter: blur(4px);
+      text-align: center;
+      p {
+        @include tittle(600, $font-color-white);
+        width: 50vw;
+      }
+      a {
+        @include button(none, white, $font-color-black, rgb(255, 255, 255));
+        border: 2px solid $font-color-white;
+        margin: 2.5rem 0;
+      }
+    }
+  }
+  // bottom inquiry section ended here
+
+  // footer section started here
+  footer {
+    width: 80%;
+    margin: auto;
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    .right_side {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 3rem 1.5rem;
+      .Legal {
+        border-inline: 2px solid $description-color;
+      }
+      & > div {
+        padding-inline: 2vw;
+        p {
+          @include small-text(600, $font-color-black);
+          margin-bottom: 1rem;
+        }
+        ul {
+          li {
+            margin-top: 0.7rem;
+            a {
+              @include Description;
+              &:hover {
+                color: royalblue;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+    .left_side {
+      padding: 3rem 1.5rem;
+      .logo {
+        @include flexbox(row, start, center);
+        gap: 0.6rem;
+        img {
+          width: 2vw;
+          margin: 1rem 0;
+          aspect-ratio: 1;
+          max-width: 60px;
+          min-width: 50px;
+          border-radius: 50%;
+        }
+        p {
+          font-size: $medium-size;
+          font-weight: 540;
+          letter-spacing: 2.5px;
+        }
+      }
+      p:nth-child(2) {
+        font-size: clamp(1rem, 1vw, 2rem);
+        margin-right: 5vw;
+      }
+      p:nth-child(3) {
+        @include Description;
+        margin-top: 2rem;
+      }
+      & > a {
+        font-size: $small-size;
+        border-bottom: 2px solid $description-color;
+        padding-bottom: 4px;
+        color: black;
+        &:hover {
+          color: royalblue;
+          cursor: pointer;
+        }
+      }
+      .logos {
+        margin: 2rem 0;
+        i {
+          font-size: clamp(1.5rem, 2vw, 4rem);
+          margin-right: 1.5vw;
+          color: white;
+          background-color: black;
+          padding: 0.6rem;
+          border-radius: 50%;
+          transition: all 1s ease-in-out;
+        }
+
+        i:nth-child(1) {
+          &:hover {
+            background-color: royalblue;
+            border-radius: 5px;
+          }
+        }
+        i:nth-child(2) {
+          &:hover {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(
+              90deg,
+              rgba(2, 0, 36, 1) 0%,
+              rgba(9, 9, 121, 1) 35%,
+              rgba(0, 212, 255, 1) 100%
+            );
+            border-radius: 5px;
+          }
+        }
+
+        i:last-child {
+          transition: all 1s ease-in-out;
+          &:hover {
+            background: #d6249f;
+            background: radial-gradient(
+              circle at 30% 107%,
+              #fdf497 0%,
+              #fdf497 5%,
+              #fd5949 45%,
+              #d6249f 60%,
+              #285aeb 90%
+            );
+            border-radius: 5px;
+          }
+        }
+
+        i:first-child {
+          padding-inline: 1rem;
+        }
+      }
+    }
+  }
+  // footer section ended here
+}
+// main css ended here
+
+// Responsive section started here
+
+@layer Responsive {
+  @media (max-width: 720px) {
+    // hero section started here
+    .hero_section {
+      & > div {
+        width: 100%;
+      }
+      .search_box {
+        overflow: hidden;
+        padding: 1.5rem;
+        margin-bottom: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        & > div {
+          margin-top: 0.5rem;
+          width: 100%;
+          border: none;
+          border-bottom: 2px solid $description-color;
+          .line2 {
+            .ri-map-pin-line {
+              margin-right: 5px;
+            }
+          }
+        }
+        .search_button {
+          border: none;
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    .Location .line2 {
+      span {
+        display: inline;
+      }
+    }
+    //hero section ended here
+
+    // Quote section started here
+    .Quote_section {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    // Quote section ended here
+
+    // Advantages section started
+    .advantages {
+      grid-template-columns: 1fr;
+    }
+    // Advantages section ended
+
+    // Explore section started
+    .Explore {
+      .advantages {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        div {
+          width: 80%;
+          margin: 1vh 0;
+          aspect-ratio: 1.5;
+        }
+      }
+    }
+    // Explore section ended
+
+    // Listing section started here
+    .property_grid {
+      grid-template-columns: 1fr;
+      row-gap: 1.5rem;
+    }
+    // Listing section ended here
+
+    // monthly deal section started here
+    .main_content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+      .box_container {
+        margin-bottom: 2rem;
+        grid-template-columns: 1fr;
+        .left_side,
+        .right_side,
+        .bottom_section {
+          padding: 3vh;
+          max-width: 80vw;
+        }
+        .right_side > p:nth-child(2) {
+          font-size: $medium-size;
+        }
+        .left_side {
+          @include flexbox(column, center, center);
+          gap: 0.8rem;
+          .info {
+            p {
+              margin: auto;
+            }
+          }
+        }
+      }
+      .content {
+        text-align: center;
+        p:nth-child(2) {
+          margin: auto;
+          margin-block: 1rem;
+        }
+      }
+    }
+
+    // agent info section started here
+    .Agent_info {
+      .heading {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      .team_info {
+        margin-top: 3rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+    // agent info section ended here
+
+    // relator login section started here
+    .Realtor_login {
+      flex-direction: column;
+      text-align: center;
+      p {
+        margin-bottom: 1.5rem;
+        width: 100%;
+      }
+      .right_side {
+        width: 80%;
+      }
+    }
+    // relator login section ended here
+
+    // footer section start here
+    footer {
+      margin-inline: 0;
+      width: 100%;
+      max-width: 100vw;
+      padding: 0;
+      grid-template-columns: 1fr;
+      text-align: center;
+      .left_side {
+        padding: 1.5rem;
+        max-width: 100vw;
+        .logo {
+          justify-content: center;
+        }
+      }
+      .right_side {
+        padding: 1.5rem;
+        margin-top: -3rem;
+        div {
+          max-width: 33vw;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 840px) {
+    //header section started here
+    header {
+      nav,
+      .header_buttons .login,
+      .header_buttons .Listing {
+        display: none;
+      }
+      .header_buttons i {
+        display: block;
+      }
+    }
+    // header section ended here
+
+    .Introduction {
+      grid-template-columns: 1fr;
+      height: 1000px;
+
+      .box1 {
+        bottom: 300px;
+        height: fit-content;
+        right: 15px;
+      }
+    }
+
+    .Estimate_section {
+      text-align: center;
+      grid-template-columns: 1fr;
+      gap: 8rem;
+      width: 80%;
+
+      .left_side {
+        max-width: 90vw;
+        .box {
+          left: -1rem;
+          max-width: 40vw;
+          border: 2px solid white;
+        }
+      }
+      .right_side {
+        max-width: 90vw;
+      }
+    }
+  }
+
+  @media (min-width: 720px) and (max-width: 1000px) {
+    .property_grid {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 2rem;
+    }
+    .Explore {
+      .advantages {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        div {
+          width: 100%;
+          margin: 1vh 0;
+          aspect-ratio: 1.5;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .Listing_mid .heading {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      margin-bottom: 2vh;
+    }
+
+    .Process_explanation .process {
+      grid-template-columns: 1fr;
+      div:not(.arrow) {
+        max-width: 75vw;
+        aspect-ratio: 1;
+        padding: 3rem;
+        img {
+          max-width: 35vw;
+        }
+        p:nth-child(2) {
+          font-size: $medium-size;
+        }
+        p:nth-child(3) {
+          font-size: $normal-font-size;
+        }
+      }
+      .arrow {
+        writing-mode: vertical-lr;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) and (min-width: 500px) {
+    .Process_explanation .process {
+      grid-template-columns: 1fr;
+      div:not(.arrow) {
+        max-width: 50vw;
+        aspect-ratio: 1;
+        padding: 3rem;
+        img {
+          max-width: 35vw;
+        }
+        p:nth-child(2) {
+          font-size: $medium-size;
+        }
+        p:nth-child(3) {
+          font-size: $normal-font-size;
+        }
+      }
+      .arrow {
+        writing-mode: vertical-lr;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  @media (min-width: 0px) and (max-width: 240px) {
+    body > div,
+    footer {
+      overflow: auto;
+      max-width: 100vw;
+    }
+  }
+}
+
+// this is the keyframes of animations
+
+// this is keyframes for preloading  text zoom effect
+@keyframes zoomInAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    background-position: 0% 0%;
+  }
+
+  25% {
+    background-position: 50% 50%;
+  }
+
+  50% {
+    transform: scale(1);
+    background-position: 100% 100%;
+  }
+
+  75% {
+    background-position: 90% 90%;
+  }
+
+  100% {
+    opacity: 1;
+    background-position: 0% 0%;
+  }
+}
+
+// this is keyframes for hero section fade-in effect
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// this is keyframes for hero section text slider
+@keyframes text_slide_up {
+  0%,
+  10% {
+    transform: translateY(0%);
+  }
+  15%,
+  25% {
+    transform: translateY(-100%);
+  }
+  30%,
+  40% {
+    transform: translateY(-200%);
+  }
+  45%,
+  55% {
+    transform: translateY(-300%);
+  }
+  60%,
+  70% {
+    transform: translateY(-400%);
+  }
+  75%,
+  85% {
+    transform: translateY(-500%);
+  }
+  85%,
+  90% {
+    transform: translateY(-600%);
+  }
+}
