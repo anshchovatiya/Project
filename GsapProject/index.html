@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- stylesheets link  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- google fonts links  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- remix icon cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body class="font-mono ">
+
+
+    <!-- nav bar starts here  -->
+    <nav class="flex justify-between p-8 max-w-[1440px] m-auto">
+        <div class="flex items-center gap-2">
+            <i class="ri-shining-2-fill text-4xl rotate-45"></i>
+            <h2 class="text-3xl font-bold">WizardZ</h2>
+        </div>
+        <div class="flex items-center">
+            <ul class="hidden min-[820px]:flex items-center font-semibold gap-[2vw] ">
+                <li><a href="#" class="hover:text-blue-700">About Us</a></li>
+                <li><a href="#" class="hover:text-blue-700">Services</a></li>
+                <li><a href="#" class="hover:text-blue-700">Use Cases</a></li>
+                <li><a href="#" class="hover:text-blue-700">Pricing</a></li>
+                <li><a href="#" class="hover:text-blue-700">Blog</a></li>
+                <li>
+                    <button
+                        class="py-2 px-4 border-2 border-black rounded-xl relative before:absolute before:bg-slate-900 before:aspect-square before:w-[200%] before:top-0 before:right-full hover:before:-right-full overflow-hidden before:rounded-r-full hover:before:rounded-none before:duration-500  before:-z-10 hover:text-white">Request
+                        & quote</button>
+                </li>
+
+            </ul>
+            <i class="ri-menu-3-line min-[820px]:hidden text-2xl font-bold"></i>
+        </div>
+    </nav>
+
+
+    <main>
+        <!-- page 1 started  -->
+        <section id="page1" class=" max-w-[1440px] m-auto p-8 w-full ">
+            <div class="grid  lg:grid-cols-[40%_60%]">
+                <div class="left lg:pt-16">
+                    <p class="text-2xl sm:text-3xl md:text-5xl  xl:text-6xl 2xl:text-7xl font-semibold pr-10">
+                        <span class="text-nowrap inline-block leading-[1.2]">Navigating the</span>
+                        <span class="text-nowrap inline-block leading-[1.2]">digital landscape</span>
+                        <span class="text-nowrap inline-block leading-[1.2]"> for success</span>
+                    </p>
+                    <p class="mt-6 text-xl text-gray-500">Our digital marketing agency helps businesses grow and succeed
+                        online through a range of services
+                        including SEO, social media marketing and content creation.</p>
+                    <button
+                        class="px-4 py-2 bg-slate-900 text-white rounded-xl mt-8 relative before:absolute before:h-[300%] before:w-[200%] before:bg-[#B9FF66] before:rounded-l-full before:top-full 
+                before:left-full hover:before:-left-full overflow-hidden border-none hover:before:-top-full before:duration-500 z-10 before:-z-10 hover:text-black ">Book
+                        a consultation</button>
+                </div>
+                <div class="right flex justify-center lg:justify-end">
+                    <img src="./assets/hero-image.webp" alt="Illustration"
+                        class="hidden lg:block w-[550px] h-[550px] mt-12 lg:mt-0">
+                </div>
+            </div>
+            <div class="grid grid-cols-6 grid-rows-1 *:w-4/5 items-center my-8 md:my-12">
+                <img src="./assets/amazon.png" alt="amazon logo">
+                <img src="./assets/google.png" alt="google logo">
+                <img src="./assets/netflix.png" alt="netflix logo">
+                <img src="./assets/nike.png" alt="nike logo">
+                <img src="./assets/spotify.png" alt="spotify logo">
+                <img src="./assets/youtube.png" alt="youtube logo">
+            </div>
+        </section>
+
+        <!-- page 1 ended  -->
+
+        <!-- page 2 started  -->
+        <section id="page2" class="min-h-svh max-w-[1440px] m-auto p-8">
+            <div class="flex gap-7 items-center flex-col md:flex-row">
+                <p class="text-4xl px-2 font-semibold bg-[#B9FF66] rounded-xl">Services</p>
+                <p class="md:w-1/2 text-base text-gray-500 text-center md:text-left">At our digital marketing agency we
+                    offer a range of services to help businesses grow and succeed online. These services includes</p>
+            </div>
+            <div class="grid lg:grid-cols-2  mt-16 gap-[2.5vw] min-h-[70vh] grid-rows-4 lg:grid-rows-2 gap-y-[3rem] ">
+
+                <div class="border-2 rounded-[50px] shadow-box border-black grid min-[400px]:grid-cols-2">
+                    <div class="flex flex-col justify-between py-12 ml-4 sm:ml-12 gap-4">
+                        <p class="text-2xl md:text-3xl break-words bg-[#B9FF66] rounded-xl px-2 font-bold">Search engine
+                            optimization</p>
+                        <div class="flex items-center gap-3">
+                            <i
+                                class="ri-arrow-right-up-line p-2 rounded-full px-3 bg-slate-950 text-white text-2xl"></i>
+                            <p class="text-base sm:text-2xl  font-bold">Learn more</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden p-6">
+                        <img src="./assets/SEO-gif-image.gif" alt="SEO Illustration" class="h-full rounded-[50px]">
+                    </div>
+                </div>
+                <div class="border-2 rounded-[50px] shadow-box border-black grid min-[400px]:grid-cols-2 bg-black">
+                    <div class="flex flex-col justify-between py-12 ml-4 sm:ml-12  ">
+                        <p class="text-2xl md:text-3xl bg-white px-2 font-bold rounded-xl">Pay per click advertising</p>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-arrow-right-up-line p-2 rounded-full px-3 text-2xl bg-white"></i>
+                            <p class="text-base sm:text-2xl font-bold text-white">Learn more</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden p-6">
+                        <img src="./assets/advertising-gif-image.gif" alt="SEO Illustration"
+                            class="h-full rounded-[50px]">
+                    </div>
+                </div>
+                <div class="border-2 rounded-[50px] shadow-box border-black grid min-[400px]:grid-cols-2 bg-black">
+                    <div class="flex flex-col justify-between py-12 ml-4 sm:ml-12 ">
+                        <p class="text-2xl md:text-3xl bg-[#B9FF66] px-2 font-bold rounded-xl">Social media marketing
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <i class="ri-arrow-right-up-line p-2 rounded-full px-3 bg-white text-2xl"></i>
+                            <p class="text-base sm:text-2xl font-bold text-white">Learn more</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden p-6">
+                        <img src="./assets/social_media_marketing.gif" alt="SEO Illustration"
+                            class="h-full rounded-[50px]">
+                    </div>
+                </div>
+                <div class="border-2 rounded-[50px] shadow-box border-black grid min-[400px]:grid-cols-2">
+                    <div class="flex flex-col justify-between py-12  ml-4 sm:ml-12 ">
+                        <p class="text-2xl md:text-3xl  bg-[#B9FF66] rounded-xl px-2 font-bold">E-mail marketing</p>
+                        <div class="flex items-center gap-3">
+                            <i
+                                class="ri-arrow-right-up-line p-2 rounded-full px-3 bg-slate-950 text-white text-2xl"></i>
+                            <p class="text-base sm:text-2xl  font-bold">Learn more</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden p-6">
+                        <img src="./assets/email-marketing.gif" alt="SEO Illustration" class="h-full rounded-[50px]">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page 2 ended  -->
+
+
+        <!-- page 3 started  -->
+        <section id="page3" class="min-h-svh max-w-[1440px] m-auto p-8">
+            <div class="flex justify-between items-center  px-[3vw] py-4 relative mb-8">
+                <div class="md:w-1/2">
+                    <p class="text-3xl font-bold">Let's make things happen</p>
+                    <p class="mt-6 md:w-4/5 font-bold text-gray-500">Contact us today to learn more about how our digital marketing services can help your businesses
+                        grow and succeed online.</p>
+                    <button
+                        class="px-4 py-2 bg-slate-900 text-white rounded-xl mt-8 relative before:absolute before:h-[300%] before:w-[200%] before:bg-[#B9FF66] before:rounded-l-full before:top-full before:left-full hover:before:-left-full overflow-hidden border-none hover:before:-top-full before:duration-500 z-10 before:-z-10 hover:text-black ">Get
+                        your free proposal</button>
+                </div>
+                <div class="hidden md:block">
+                    <img src="./assets/proposal.svg" alt="svg image" class=" h-full w-full">
+                </div>
+                <div class="absolute h-full lg:h-[62%] left-0 w-full bg-[#F3F4F6] -z-50 rounded-3xl"></div>
+            </div>
+
+            <div class="flex gap-7 items-center flex-col md:flex-row">
+                <p class="text-4xl px-2 font-semibold bg-[#B9FF66] rounded-xl">Case study</p>
+                <p class="md:w-1/2 text-base text-gray-500 text-center md:text-left">Explore Real-Life Examples of Our proven Digital marketing Success through Our Caste Studies</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 mt-12 lg:mt-20 bg-black text-white p-[3.5vw] rounded-3xl gap-[2vw]">
+                <div class="border-b-2 md:border-b-0  md:border-r-2 border-gray-500 pr-3">
+                    <p class="text-base font-bold">For an electronics store, we executed a precisely targeted social media campaign, resulting in a remarkable 30% surge in online sales.</p>
+                    <div class="flex text-[#B9FF66] mt-6 gap-3 items-center mb-3 md:mb-0">
+                        <p class="">Learn more</p>
+                        <i class="ri-arrow-right-up-line text-2xl"></i>
+                    </div>
+                </div>
+                <div class="border-b-2 md:border-b-0   md:border-r-2 border-gray-500 pr-3">
+                    <p class="text-base font-bold">For a backpacking hostel, our combined performance marketing strategies and engaging social media efforts boosted foot traffic by 55%.</p>
+                    <div class="flex text-[#B9FF66] mt-6 gap-3 items-center mb-3 md:mb-0">
+                        <p class="">Learn more</p>
+                        <i class="ri-arrow-right-up-line text-2xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-base font-bold ">Crafted a complete branding package from scratch for a gaming cafe, covering everything from logo design to sunboards, and captivating social media graphics.</p>
+                    <div class="flex text-[#B9FF66] mt-6 gap-3 items-center">
+                        <p>Learn more</p>
+                        <i class="ri-arrow-right-up-line text-2xl"></i>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </section>
+        <!-- page 3 ended  -->
+
+    </main>
+
+
+
+    <!-- javascript links -->
+    <!-- gsap cdn link -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
+    <!-- scroll trigger cdn link  -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/ScrollTrigger.min.js"></script>
+    <!-- javascript file link  -->
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- main color #B9FF66 -->
