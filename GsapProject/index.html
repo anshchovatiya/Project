@@ -27,18 +27,18 @@
 
     <!-- nav bar starts here  -->
     <nav class="flex justify-between p-8 max-w-[1440px] m-auto">
-        <div class="flex items-center gap-2">
+        <div id="tittle" class="flex items-center gap-2">
             <i class="ri-shining-2-fill text-4xl rotate-45"></i>
-            <h2 class="text-3xl font-bold">WizardZ</h2>
+            <h2  class="text-3xl font-bold">WizardZ</h2>
         </div>
         <div class="flex items-center">
             <ul class="hidden min-[820px]:flex items-center font-semibold gap-[2vw] ">
-                <li><a href="#" class="hover:text-blue-700">About Us</a></li>
-                <li><a href="#" class="hover:text-blue-700">Services</a></li>
-                <li><a href="#" class="hover:text-blue-700">Use Cases</a></li>
-                <li><a href="#" class="hover:text-blue-700">Pricing</a></li>
-                <li><a href="#" class="hover:text-blue-700">Blog</a></li>
-                <li>
+                <li class="navlinks"><a href="#" class="hover:text-blue-700">About Us</a></li>
+                <li class="navlinks"><a href="#" class="hover:text-blue-700">Services</a></li>
+                <li class="navlinks"><a href="#" class="hover:text-blue-700">Use Cases</a></li>
+                <li class="navlinks"><a href="#" class="hover:text-blue-700">Pricing</a></li>
+                <li class="navlinks"><a href="#" class="hover:text-blue-700">Blog</a></li>
+                <li class="navlinks">
                     <button
                         class="py-2 px-4 border-2 border-black rounded-xl relative before:absolute before:bg-slate-900 before:aspect-square before:w-[200%] before:top-0 before:right-full hover:before:-right-full overflow-hidden before:rounded-r-full hover:before:rounded-none before:duration-500  before:-z-10 hover:text-white">Request
                         & quote</button>
@@ -55,12 +55,12 @@
         <section id="page1" class=" max-w-[1440px] m-auto p-8 w-full ">
             <div class="grid  lg:grid-cols-[40%_60%]">
                 <div class="left lg:pt-16">
-                    <p class="text-2xl sm:text-3xl md:text-5xl  xl:text-6xl 2xl:text-7xl font-semibold pr-10">
+                    <p  class="hero-text text-2xl sm:text-3xl md:text-5xl  xl:text-6xl 2xl:text-7xl font-semibold pr-10">
                         <span class="text-nowrap inline-block leading-[1.2]">Navigating the</span>
                         <span class="text-nowrap inline-block leading-[1.2]">digital landscape</span>
                         <span class="text-nowrap inline-block leading-[1.2]"> for success</span>
                     </p>
-                    <p class="mt-6 text-xl text-gray-500">Our digital marketing agency helps businesses grow and succeed
+                    <p  class="hero-text mt-6 text-xl text-gray-500">Our digital marketing agency helps businesses grow and succeed
                         online through a range of services
                         including SEO, social media marketing and content creation.</p>
                     <button
@@ -73,13 +73,13 @@
                         class="hidden lg:block w-[550px] h-[550px] mt-12 lg:mt-0">
                 </div>
             </div>
-            <div class="grid grid-cols-6 grid-rows-1 *:w-4/5 items-center my-8 md:my-12">
-                <img src="./assets/amazon.png" alt="amazon logo">
-                <img src="./assets/google.png" alt="google logo">
-                <img src="./assets/netflix.png" alt="netflix logo">
-                <img src="./assets/nike.png" alt="nike logo">
-                <img src="./assets/spotify.png" alt="spotify logo">
-                <img src="./assets/youtube.png" alt="youtube logo">
+            <div class="brand-logos grid grid-cols-6 grid-rows-1 *:w-4/5 items-center my-8 md:my-12">
+                <img class="first" src="./assets/amazon.png" alt="amazon logo">
+                <img class="first" src="./assets/google.png" alt="google logo">
+                <img class="first" src="./assets/netflix.png" alt="netflix logo">
+                <img class="second" src="./assets/nike.png" alt="nike logo">
+                <img class="second" src="./assets/spotify.png" alt="spotify logo">
+                <img class="second" src="./assets/youtube.png" alt="youtube logo">
             </div>
         </section>
 
